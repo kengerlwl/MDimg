@@ -5,7 +5,6 @@ import os
 FileDir = os.path.abspath(os.path.dirname(__file__))
 
 
-
 # 这里是我的代理， 如果不需要代理删除这个就行， 
 proxies = {"http":"http://127.0.0.1:7890", "https":"http://127.0.0.1:7890"}  #设置http和https 代理
 
@@ -16,7 +15,10 @@ os.makedirs(FileDir +'/copyMD/', exist_ok=True)
 img_dir = FileDir +'/image/'
 
 githubUrl = 'https://github.com/2892211452/MDimg' 
-githubUrl = githubUrl + '/blob/master'
+githubUrl = githubUrl.replace('https://github.com/', '')
+githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
+githubUrl = githubUrl + '/master'
+print(githubUrl)
 
 name = 'test.md'
 
