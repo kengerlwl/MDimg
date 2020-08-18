@@ -10,7 +10,9 @@ os.makedirs(FileDir +'/copyMD/', exist_ok=True)
 
 img_dir = FileDir +'/image/'
 
-githubUrl = ''
+githubUrl = 'https://github.com/2892211452/MDimg' 
+githubUrl = githubUrl + '/blob/master'
+
 name = 'test.md'
 
 
@@ -42,7 +44,10 @@ for i in lines:
         path = img_dir + name
         request_download(path,tmp)
         print(tmp , '已经保存到本地')
-        i = i.replace(tmp, path)
+        url = path.replace(FileDir, '')
+        url = githubUrl + url
+        print(url)
+        i = i.replace(tmp, url)
         print(i)
     mdFile.write(i)
 
