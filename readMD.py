@@ -20,7 +20,7 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print(githubUrl)
 
-name = 'test.md'
+name = '关于如何将 MD 的图片换源成github.md'
 
 
 def request_download(path,IMAGE_URL):
@@ -38,25 +38,28 @@ with open(FileDir+'/' + name, 'r', encoding= 'utf-8', errors='ignore') as  f:
 mdFile = open( FileDir +'/copyMD/' + name,'w',encoding= 'utf-8',)
 
 for i in lines:
-    ans = re.findall(r'!.?((.*?))', i)
-    if ans !=[]:
-        # print(ans)
-        tmp = i.split('(')[1]
-        tmp = tmp.replace(')', '')
-        tmp = tmp.replace('\n', '')
-        name = tmp .replace('https://', '')
-        name = name .replace('http://', '')
-        name = name .replace('/', '')
-        name = name .replace('\n', '')
-        path = img_dir + name
-        request_download(path,tmp)
-        print(tmp , '已经保存到本地')
-        url = path.replace(FileDir, '')
-        url = githubUrl + url
-        print(url)
-        i = i.replace(tmp, url)
-        print(i)
-    mdFile.write(i)
+    try:
+        ans = re.findall(r'!.?((.*?))', i)
+        if ans !=[]:
+            # print(ans)
+
+            tmp = i.split('(')[1]
+            tmp = tmp.replace(')', '')
+            tmp = tmp.replace('\n', '')
+            name = tmp .replace('https://', '')
+            name = name .replace('http://', '')
+            name = name .replace('/', '')
+            name = name .replace('\n', '')
+            path = img_dir + name
+            request_download(path,tmp)
+            print(tmp , '已经保存到本地')
+            url = path.replace(FileDir, '')
+            url = githubUrl + url
+            print(url)
+            i = i.replace(tmp, url)
+        mdFile.write(i)
+    except:
+        mdFile.write(i)
 
 
 
