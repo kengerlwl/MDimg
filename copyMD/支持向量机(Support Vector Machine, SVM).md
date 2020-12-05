@@ -1,5 +1,8 @@
 # 支持向量机(Support Vector Machine, SVM)
 
+这篇文章链接[svm](https://tangshusen.me/2018/10/27/SVM/)
+
+
 ## 1. 概要
 
 ### 1.1 简介

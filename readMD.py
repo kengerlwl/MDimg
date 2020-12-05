@@ -20,14 +20,14 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print(githubUrl)
 
-name = '支持向量机(Support Vector Machine, SVM).md'
+name = '爬虫.md'
 
 
 def request_download(path,IMAGE_URL):
     import requests
-    #r = requests.get(IMAGE_URL, proxies = proxies)  #使用代理   ！！！！！！！ 也可以不用，我是境外的网站所以要用
+    r = requests.get(IMAGE_URL, proxies = proxies)  #使用代理   ！！！！！！！ 也可以不用，我是境外的网站所以要用
 
-    r = requests.get(IMAGE_URL)   #不使用代理
+    # r = requests.get(IMAGE_URL)   #不使用代理
 
     with open(path, 'wb') as f:
         f.write(r.content)
