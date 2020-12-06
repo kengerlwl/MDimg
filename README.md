@@ -1,5 +1,10 @@
 # 关于如何将 MD 的图片换源成github
 
+
+# 加一个哈希算法
+避免图片名字重复
+
+
 ## 首先，去github新建仓库
 ![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comVXFAdJ6.png)
 ## 新建python文件以及需要进行换源的文档
