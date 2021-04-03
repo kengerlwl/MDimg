@@ -20,25 +20,22 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print(githubUrl)
 
-name = '爬虫.md'
+MDname = '算法比赛套路.md'
 
 
 def request_download(path,IMAGE_URL):
     import requests
     r = requests.get(IMAGE_URL, proxies = proxies)  #使用代理   ！！！！！！！ 也可以不用，我是境外的网站所以要用
-
-    # r = requests.get(IMAGE_URL)   #不使用代理
-
     with open(path, 'wb') as f:
         f.write(r.content)
 
 
 
-with open(FileDir+'/' + name, 'r', encoding= 'utf-8', errors='ignore') as  f:
+with open(FileDir+'/' + MDname, 'r', encoding= 'utf-8', errors='ignore') as  f:
     lines = f.readlines()
 
 
-mdFile = open( FileDir +'/copyMD/' + name,'w',encoding= 'utf-8',)
+mdFile = open( FileDir +'/copyMD/' + MDname,'w',encoding= 'utf-8',)
 
 for i in lines:
     try:
