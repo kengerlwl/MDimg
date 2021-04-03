@@ -1,5 +1,6 @@
 import  re
 import os
+import 加密算法.mymd5 as md5
 
 #当前文件目录路径
 FileDir = os.path.abspath(os.path.dirname(__file__))
@@ -18,7 +19,7 @@ githubUrl = 'https://github.com/2892211452/MDimg'
 githubUrl = githubUrl.replace('https://github.com/', '')
 githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
-print(githubUrl)
+print('github 的链接 ： '+githubUrl)
 
 MDname = '算法比赛套路.md'
 
@@ -50,12 +51,14 @@ for i in lines:
             name = name .replace('http://', '')
             name = name .replace('/', '')
             name = name .replace('\n', '')
-            path = img_dir + name
+            path = img_dir + md5.my_md5(name) +'.png'
             request_download(path,tmp)
             print(tmp , '已经保存到本地')
+            # print(path, 'path')
             url = path.replace(FileDir, '')
+            # print(url)
             url = githubUrl + url
-            print(url)
+            print('图片在github上的链接 ： '+url)
             i = i.replace(tmp, url)
         mdFile.write(i)
     except:
