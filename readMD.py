@@ -21,7 +21,7 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print('github 的链接 ： '+githubUrl)
 
-MDname = '算法比赛套路.md'
+MDname = '简单前后端分离项目部署.md'
 
 
 def request_download(path,IMAGE_URL):
