@@ -42,7 +42,7 @@ mdFile = open( FileDir +'/copyMD/' + MDname,'w',encoding= 'utf-8',)
 
 for i in lines:
     try:
-        ans = re.findall(r'!.?((.*?))', i) # 检验有没有https图片
+        ans = re.findall(r'!.?((htt.*?))', i) # 检验有没有https图片
         ans2 = re.findall(r'C:\\.*',i) # 检验有没有本地图片
         if ans !=[]:
             # print(ans)
@@ -68,7 +68,7 @@ for i in lines:
             tmp = tmp.replace(')', '')
             tmp = tmp.replace('\n', '')
             path = img_dir + md5.my_md5(tmp) + '.png'
-
+            print(tmp)
             img = Image.open(tmp)
             img.save(path, 'png')
 
