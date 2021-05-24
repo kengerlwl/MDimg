@@ -44,7 +44,7 @@ for i in lines:
     try:
         ans = re.findall(r'!.?((.*?))', i) # 检验有没有https图片
         ans2 = re.findall(r'C:\\.*',i) # 检验有没有本地图片
-        if ans !=[] and False:
+        if ans !=[]:
             # print(ans)
 
             tmp = i.split('(')[1]
