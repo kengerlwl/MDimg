@@ -42,7 +42,7 @@ mdFile = open( FileDir +'/copyMD/' + MDname,'w',encoding= 'utf-8',)
 
 for i in lines:
     try:
-        ans = re.findall(r'!.?((htt.*?))', i) # 检验有没有https图片
+        ans = re.findall(r'!.*?((htt.*?))', i) # 检验有没有https图片
         ans2 = re.findall(r'C:\\.*',i) # 检验有没有本地图片
         if ans !=[]:
             # print(ans)
@@ -63,7 +63,7 @@ for i in lines:
             url = githubUrl + url
             print('图片在github上的链接 ： '+url)
             i = i.replace(tmp, url)
-        elif ans2 != []:
+        elif ans2 != [] :
             tmp = i.split('(')[1]
             tmp = tmp.replace(')', '')
             tmp = tmp.replace('\n', '')
