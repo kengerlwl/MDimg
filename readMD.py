@@ -2,6 +2,8 @@ import  re
 import os
 import 加密算法.mymd5 as md5
 import requests
+from PIL import Image
+
 
 #当前文件目录路径
 FileDir = os.path.abspath(os.path.dirname(__file__))
@@ -22,7 +24,7 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print('github 的链接 ： '+githubUrl)
 
-MDname = '贝塞尔曲线.md'
+MDname = '数字图像处理.md'
 
 
 def request_download(path,IMAGE_URL):
@@ -40,8 +42,9 @@ mdFile = open( FileDir +'/copyMD/' + MDname,'w',encoding= 'utf-8',)
 
 for i in lines:
     try:
-        ans = re.findall(r'!.?((.*?))', i)
-        if ans !=[]:
+        ans = re.findall(r'!.?((.*?))', i) # 检验有没有https图片
+        ans2 = re.findall(r'C:\\.*',i) # 检验有没有本地图片
+        if ans !=[] and False:
             # print(ans)
 
             tmp = i.split('(')[1]
@@ -60,9 +63,28 @@ for i in lines:
             url = githubUrl + url
             print('图片在github上的链接 ： '+url)
             i = i.replace(tmp, url)
+        elif ans2 != []:
+            tmp = i.split('(')[1]
+            tmp = tmp.replace(')', '')
+            tmp = tmp.replace('\n', '')
+            path = img_dir + md5.my_md5(tmp) + '.png'
+
+            img = Image.open(tmp)
+            img.save(path, 'png')
+
+            url = path.replace(FileDir, '')
+            url = githubUrl + url
+            print('图片在github上的链接 ： ' + url)
+            i = i.replace(tmp, url)
+
+
+
+
+
         mdFile.write(i)
-    except:
+    except Exception as e:
         mdFile.write(i)
+        print(e)
 
 
 
