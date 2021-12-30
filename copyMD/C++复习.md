@@ -1,5 +1,403 @@
 # C++复习
 
+
+
+### 常用头文件
+
+```
+#include<iostream> 
+#include <string>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <set>
+#include <map>
+#include <ctime>
+#include <algorithm>
+#include <cmath>
+#include<bits/stdc++.h>
+
+
+
+using namespace std;
+
+//常见常量与等价定义 
+typedef long long int64;
+typedef pair<int, int> ii;
+const double eps = 1e-6;
+const int INF = 1 << 29;
+const int MOD = 1e9 + 7;
+const int MAXN = 100;
+```
+
+
+
+
+
+### 标准IO
+
+| 头文件     | 函数和描述                                                   |
+| :--------- | :----------------------------------------------------------- |
+| <iostream> | 该文件定义了 **cin、cout、cerr** 和 **clog** 对象，分别对应于标准输入流、标准输出流、非缓冲标准错误流和缓冲标准错误流。 |
+| <iomanip>  | 该文件通过所谓的参数化的流操纵器（比如 **setw** 和 **setprecision**），来声明对执行标准化 I/O 有用的服务。 |
+| <fstream>  | 该文件为用户控制的文件处理声明服务。我们将在文件和流的相关章节讨论它的细节。 |
+
+#### 关于scanf
+
+- 输入string
+
+  ```
+  	char s[100100];
+  	
+  	while(scanf("%s", s) != EOF){
+  	int len = strlen(s); //#include<bits/stdc++.h>
+  
+  ```
+
+  
+
+- 
+
+
+
+
+
+### STL模板
+
+C++ 标准模板库的核心包括以下三个组件：
+
+| 组件                | 描述                                                         |
+| :------------------ | :----------------------------------------------------------- |
+| 容器（Containers）  | 容器是用来管理某一类对象的集合。C++ 提供了各种不同类型的容器，比如 deque、list、vector、map 等。 |
+| 算法（Algorithms）  | 算法作用于容器。它们提供了执行各种操作的方式，包括对容器内容执行初始化、排序、搜索和转换等操作。 |
+| 迭代器（iterators） | 迭代器用于遍历对象集合的元素。这些集合可能是容器，也可能是容器的子集。 |
+
+
+
+#### 字典
+
+**内部实现机理**
+
+- map： **map内部实现了一个红黑树**，该结构具有自动排序的功能，因此map内部的所有元素都是有序的，红黑树的每一个节点都代表着map的一个元素，因此，**对于map进行的查找，删除，添加等一系列的操作都相当于是对红黑树进行这样的操作，故红黑树的效率决定了map的效率。**
+- unordered_map: unordered_map内部实现了一个哈希表，因此其元素的排列顺序是杂乱的，无序的
+
+#### map红黑树使用
+
+**存入**
+
+```
+map<int,int> count;
+count[i]=1;
+```
+
+**查找**
+
+```
+如果key存在，则find返回key对应的迭代器，如果key不存在，则find返回尾后迭代器 .end()。可以参考下面的示例来判断key值是否存在
+
+if (mymap.find(key) == mymap.end())
+    cout << "没有这个key" << endl;
+```
+
+**统计次数**
+
+```
+count函数
+count函数用于统计key值在map中出现的次数，map的key不允许重复，因此如果key存在返回1，不存在返回0
+
+if (mymap.count(key) == 0)
+```
+
+**取值**
+
+Map中元素取值主要有at和[ ]两种操作，at会作下标检查，而[]不会。
+
+
+
+**删除**
+
+```
+// 删除迭代器指向位置的键值对，并返回一个指向下一元素的迭代器
+iterator erase( iterator pos )
+
+// 删除一定范围内的元素，并返回一个指向下一元素的迭代器
+iterator erase( const_iterator first, const_iterator last );
+
+// 根据Key来进行删除， 返回删除的元素数量，在map里结果非0即1
+size_t erase( const key_type& key );
+
+// 清空map，清空后的size为0
+void clear();
+```
+
+
+
+**遍历**
+
+```
+ map<int, int>::iterator iter;
+    iter = _map.begin();
+    while(iter != _map.end()) {
+        cout << iter->first << " : " << iter->second << endl;
+        iter++;
+    }
+```
+
+
+
+
+
+#### vector 使用
+
+**初始化大小**
+
+```
+vector<int> ans(10,0); 10个0
+vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中// 相当于切片
+```
+
+**插入**
+
+
+- void push_back(const T& x):向量尾部增加一个元素X
+- iterator insert(iterator it,const T& x):向量中迭代器指向元素前增加一个元素x
+
+
+
+**遍历**
+
+```
+    cout<<"直接利用数组："; 
+    for(int i=0;i<10;i++)//方法一 
+    {
+        cout<<obj[i]<<" ";
+    }
+ 
+    cout<<endl; 
+    cout<<"利用迭代器：" ;
+    //方法二，使用迭代器将容器中数据输出 
+    vector<int>::iterator it;//声明一个迭代器，来访问vector容器，作用：遍历或者指向vector容器的元素 
+    for(it=obj.begin();it!=obj.end();it++)
+    {
+        cout<<*it<<" ";
+    }
+```
+
+
+
+
+
+**删除函数**
+
+- iterator erase(iterator it):删除向量中迭代器指向元素
+- iterator erase(iterator first,iterator last):删除向量中[first,last)中元素
+- void pop_back():删除向量中最后一个元素
+
+- iterator insert(iterator it,const_iterator first,const_iterator last):向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据
+
+
+
+
+
+#### set 库
+
+**存入**
+
+```
+a.insert(i);
+```
+
+**统计**
+
+**count()** 用来查找set中某个某个键值出现的次数。这个函数在set并不是很实用，因为一个键值在set只可能出现0或1次，这样就变成了判断某一键值是否在set出现过了。
+
+**查找**
+
+```
+find()  ，返回给定值值得定位器，如果没找到则返回end()。
+```
+
+
+
+
+
+**查找邻近元素**
+
+```
+lower_bound(key_value) ，返回第一个大于等于key_value的定位器
+
+upper_bound(key_value)，返回最后一个大于等于key_value的定位器
+```
+
+
+
+
+
+**删除**
+
+```
+erase(iterator)  ,删除定位器iterator指向的值
+
+erase(first,second),删除定位器first和second之间的值
+
+erase(key_value),删除键值key_value的值
+```
+
+
+
+
+
+#### 栈
+
+和其他序列容器相比，stack 是一类存储机制简单、所提供操作较少的容器。下面是 stack 容器可以提供的一套完整操作：
+
+- top()：返回一个栈顶元素的引用，类型为 T&。如果栈为空，返回值未定义。
+- push(const T& obj)：可以将对象副本压入栈顶。这是通过调用底层容器的 push_back() 函数完成的。
+- push(T&& obj)：以移动对象的方式将对象压入栈顶。这是通过调用底层容器的有右值引用参数的 push_back() 函数完成的。
+- pop()：弹出栈顶元素。
+- size()：返回栈中元素的个数。
+- empty()：在栈中没有元素的情况下返回 true。
+- emplace()：用传入的参数调用构造函数，在栈顶生成对象。
+- swap(stack<T> & other_stack)：将当前栈中的元素和参数中的元素交换。参数所包含元素的类型必须和当前栈的相同。对于 stack 对象有一个特例化的全局函数 swap() 可以使用。
+
+
+
+#### 优先级队列（默认是最大堆）
+
+```
+#include <queue>
+```
+
+具体方法
+
+和队列基本操作相同:
+
+- top 访问队头元素
+- empty 队列是否为空
+- size 返回队列内元素个数
+- push 插入元素到队尾 (并排序)
+- emplace 原地构造一个元素并插入队列
+- pop 弹出队头元素
+- swap 交换内容
+
+定义：`priority_queue<Type, Container, Functional>`
+
+**默认是最大堆**
+
+**最后一个参数是比较函数**
+
+```
+#include <iostream>
+#include <queue>
+using namespace std;
+
+//方法1
+struct tmp1 //运算符重载<
+{
+    int x;
+    tmp1(int a) {x = a;}
+    bool operator<(const tmp1& a) const
+    {
+        return x < a.x; //大顶堆
+    }
+};
+
+//方法2
+struct tmp2 //重写仿函数
+{
+    bool operator() (tmp1 a, tmp1 b) 
+    {
+        return a.x < b.x; //大顶堆
+    }
+};
+
+int main() 
+{
+    tmp1 a(1);
+    tmp1 b(2);
+    tmp1 c(3);
+    priority_queue<tmp1> d;
+    d.push(b);
+    d.push(c);
+    d.push(a);
+    while (!d.empty()) 
+    {
+        cout << d.top().x << '\n';
+        d.pop();
+    }
+    cout << endl;
+
+    priority_queue<tmp1, vector<tmp1>, tmp2> f;
+    f.push(c);
+    f.push(b);
+    f.push(a);
+    while (!f.empty()) 
+    {
+        cout << f.top().x << '\n';
+        f.pop();
+    }
+}
+
+```
+
+
+
+
+
+
+
+### algorithm库得方法
+
+**排序**
+
+```
+vector
+bool compare(int a,int b) 
+{ 
+    return a< b; //升序排列，如果改为return a>b，则为降序 
+} 
+int a[20]={2,4,1,23,5,76,0,43,24,65},i; 
+for(i=0;i<20;i++) 
+    cout<< a[i]<< endl; 
+sort(a,a+20,compare);
+sort(a.begin(), a.end(), cmp) //或者
+```
+
+
+
+**反转**vector
+
+```
+reverse(ans.begin(), ans.end());
+```
+
+这里是引用过去得，相当于直接改变了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 基本数据类型
 
 C++ 为程序员提供了种类丰富的内置数据类型和用户自定义的数据类型。下表列出了**七种基本的 C++ 数据类型**：
@@ -388,333 +786,6 @@ int main ()
 ```
 
 引用传递得意思。
-
-
-
-### 标准IO
-
-| 头文件     | 函数和描述                                                   |
-| :--------- | :----------------------------------------------------------- |
-| <iostream> | 该文件定义了 **cin、cout、cerr** 和 **clog** 对象，分别对应于标准输入流、标准输出流、非缓冲标准错误流和缓冲标准错误流。 |
-| <iomanip>  | 该文件通过所谓的参数化的流操纵器（比如 **setw** 和 **setprecision**），来声明对执行标准化 I/O 有用的服务。 |
-| <fstream>  | 该文件为用户控制的文件处理声明服务。我们将在文件和流的相关章节讨论它的细节。 |
-
-
-
-
-
-
-
-### STL模板
-
-C++ 标准模板库的核心包括以下三个组件：
-
-| 组件                | 描述                                                         |
-| :------------------ | :----------------------------------------------------------- |
-| 容器（Containers）  | 容器是用来管理某一类对象的集合。C++ 提供了各种不同类型的容器，比如 deque、list、vector、map 等。 |
-| 算法（Algorithms）  | 算法作用于容器。它们提供了执行各种操作的方式，包括对容器内容执行初始化、排序、搜索和转换等操作。 |
-| 迭代器（iterators） | 迭代器用于遍历对象集合的元素。这些集合可能是容器，也可能是容器的子集。 |
-
-
-
-#### 字典
-
-**内部实现机理**
-
-- map： **map内部实现了一个红黑树**，该结构具有自动排序的功能，因此map内部的所有元素都是有序的，红黑树的每一个节点都代表着map的一个元素，因此，**对于map进行的查找，删除，添加等一系列的操作都相当于是对红黑树进行这样的操作，故红黑树的效率决定了map的效率。**
-- unordered_map: unordered_map内部实现了一个哈希表，因此其元素的排列顺序是杂乱的，无序的
-
-#### map红黑树使用
-
-**存入**
-
-```
-map<int,int> count;
-count[i]=1;
-```
-
-**查找**
-
-```
-如果key存在，则find返回key对应的迭代器，如果key不存在，则find返回尾后迭代器 .end()。可以参考下面的示例来判断key值是否存在
-
-if (mymap.find(key) == mymap.end())
-    cout << "没有这个key" << endl;
-```
-
-**统计次数**
-
-```
-count函数
-count函数用于统计key值在map中出现的次数，map的key不允许重复，因此如果key存在返回1，不存在返回0
-
-if (mymap.count(key) == 0)
-```
-
-**取值**
-
-Map中元素取值主要有at和[ ]两种操作，at会作下标检查，而[]不会。
-
-
-
-**删除**
-
-```
-// 删除迭代器指向位置的键值对，并返回一个指向下一元素的迭代器
-iterator erase( iterator pos )
-
-// 删除一定范围内的元素，并返回一个指向下一元素的迭代器
-iterator erase( const_iterator first, const_iterator last );
-
-// 根据Key来进行删除， 返回删除的元素数量，在map里结果非0即1
-size_t erase( const key_type& key );
-
-// 清空map，清空后的size为0
-void clear();
-```
-
-
-
-**遍历**
-
-```
- map<int, int>::iterator iter;
-    iter = _map.begin();
-    while(iter != _map.end()) {
-        cout << iter->first << " : " << iter->second << endl;
-        iter++;
-    }
-```
-
-
-
-
-
-#### vector 使用
-
-**初始化大小**
-
-```
-vector<int> ans(10,0); 10个0
-vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中// 相当于切片
-```
-
-**插入**
-
-
-- void push_back(const T& x):向量尾部增加一个元素X
-- iterator insert(iterator it,const T& x):向量中迭代器指向元素前增加一个元素x
-
-
-
-**遍历**
-
-```
-    cout<<"直接利用数组："; 
-    for(int i=0;i<10;i++)//方法一 
-    {
-        cout<<obj[i]<<" ";
-    }
- 
-    cout<<endl; 
-    cout<<"利用迭代器：" ;
-    //方法二，使用迭代器将容器中数据输出 
-    vector<int>::iterator it;//声明一个迭代器，来访问vector容器，作用：遍历或者指向vector容器的元素 
-    for(it=obj.begin();it!=obj.end();it++)
-    {
-        cout<<*it<<" ";
-    }
-```
-
-
-
-
-
-**删除函数**
-
-- iterator erase(iterator it):删除向量中迭代器指向元素
-- iterator erase(iterator first,iterator last):删除向量中[first,last)中元素
-- void pop_back():删除向量中最后一个元素
-
-- iterator insert(iterator it,const_iterator first,const_iterator last):向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据
-
-
-
-
-
-#### set 库
-
-**存入**
-
-```
-a.insert(i);
-```
-
-**统计**
-
-**count()** 用来查找set中某个某个键值出现的次数。这个函数在set并不是很实用，因为一个键值在set只可能出现0或1次，这样就变成了判断某一键值是否在set出现过了。
-
-**查找**
-
-```
-find()  ，返回给定值值得定位器，如果没找到则返回end()。
-```
-
-
-
-
-
-**查找邻近元素**
-
-```
-lower_bound(key_value) ，返回第一个大于等于key_value的定位器
-
-upper_bound(key_value)，返回最后一个大于等于key_value的定位器
-```
-
-
-
-
-
-**删除**
-
-```
-erase(iterator)  ,删除定位器iterator指向的值
-
-erase(first,second),删除定位器first和second之间的值
-
-erase(key_value),删除键值key_value的值
-```
-
-
-
-
-
-#### 栈
-
-和其他序列容器相比，stack 是一类存储机制简单、所提供操作较少的容器。下面是 stack 容器可以提供的一套完整操作：
-
-- top()：返回一个栈顶元素的引用，类型为 T&。如果栈为空，返回值未定义。
-- push(const T& obj)：可以将对象副本压入栈顶。这是通过调用底层容器的 push_back() 函数完成的。
-- push(T&& obj)：以移动对象的方式将对象压入栈顶。这是通过调用底层容器的有右值引用参数的 push_back() 函数完成的。
-- pop()：弹出栈顶元素。
-- size()：返回栈中元素的个数。
-- empty()：在栈中没有元素的情况下返回 true。
-- emplace()：用传入的参数调用构造函数，在栈顶生成对象。
-- swap(stack<T> & other_stack)：将当前栈中的元素和参数中的元素交换。参数所包含元素的类型必须和当前栈的相同。对于 stack 对象有一个特例化的全局函数 swap() 可以使用。
-
-
-
-#### 优先级队列（默认是最大堆）
-
-```
-#include <queue>
-```
-
-具体方法
-
-和队列基本操作相同:
-
-- top 访问队头元素
-- empty 队列是否为空
-- size 返回队列内元素个数
-- push 插入元素到队尾 (并排序)
-- emplace 原地构造一个元素并插入队列
-- pop 弹出队头元素
-- swap 交换内容
-
-定义：`priority_queue<Type, Container, Functional>`
-
-**默认是最大堆**
-
-**最后一个参数是比较函数**
-
-```
-#include <iostream>
-#include <queue>
-using namespace std;
-
-//方法1
-struct tmp1 //运算符重载<
-{
-    int x;
-    tmp1(int a) {x = a;}
-    bool operator<(const tmp1& a) const
-    {
-        return x < a.x; //大顶堆
-    }
-};
-
-//方法2
-struct tmp2 //重写仿函数
-{
-    bool operator() (tmp1 a, tmp1 b) 
-    {
-        return a.x < b.x; //大顶堆
-    }
-};
-
-int main() 
-{
-    tmp1 a(1);
-    tmp1 b(2);
-    tmp1 c(3);
-    priority_queue<tmp1> d;
-    d.push(b);
-    d.push(c);
-    d.push(a);
-    while (!d.empty()) 
-    {
-        cout << d.top().x << '\n';
-        d.pop();
-    }
-    cout << endl;
-
-    priority_queue<tmp1, vector<tmp1>, tmp2> f;
-    f.push(c);
-    f.push(b);
-    f.push(a);
-    while (!f.empty()) 
-    {
-        cout << f.top().x << '\n';
-        f.pop();
-    }
-}
-
-```
-
-
-
-
-
-
-
-### algorithm库得方法
-
-**排序**
-
-```
-vector
-bool compare(int a,int b) 
-{ 
-    return a< b; //升序排列，如果改为return a>b，则为降序 
-} 
-int a[20]={2,4,1,23,5,76,0,43,24,65},i; 
-for(i=0;i<20;i++) 
-    cout<< a[i]<< endl; 
-sort(a,a+20,compare);
-sort(a.begin(), a.end(), cmp) //或者
-```
-
-
-
-**反转**vector
-
-```
-reverse(ans.begin(), ans.end());
-```
-
-这里是引用过去得，相当于直接改变了
 
 
 
