@@ -24,7 +24,7 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print('github 的链接 ： '+githubUrl)
 
-MDname = 'C++复习.md'
+MDname = '实验室网络.md'
 
 
 def request_download(path,IMAGE_URL):
@@ -34,16 +34,18 @@ def request_download(path,IMAGE_URL):
 
 
 
-with open(FileDir+'/' + MDname, 'r', encoding= 'utf-8', errors='ignore') as  f:
+with open(FileDir+'/sourcemd/' + MDname, 'r', encoding= 'utf-8', errors='ignore') as  f:
     lines = f.readlines()
+
+
 
 
 mdFile = open( FileDir +'/copyMD/' + MDname,'w',encoding= 'utf-8',)
 
 for i in lines:
     try:
-        ans = re.findall(r'!.*?((htt.*?))', i) # 检验有没有https图片
-        ans2 = re.findall(r'C:\\.*',i) # 检验有没有本地图片
+        ans = re.findall('!.*(htt.*?)', i) # 检验有没有https图片
+        ans2 = re.findall(r'/.*png',i) # 检验有没有本地图片
         if ans !=[]:
             # print(ans)
 
