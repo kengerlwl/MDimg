@@ -8,8 +8,7 @@ from PIL import Image
 #当前文件目录路径
 FileDir = os.path.abspath(os.path.dirname(__file__))
 
-
-# 这里是我的代理， 如果不需要代理删除这个就行， 
+# 这里是我的代理， 如果不需要代理删除这个就行，
 proxies = {"http":"http://127.0.0.1:7890", "https":"http://127.0.0.1:7890"}  #设置http和https 代理
 
 
@@ -18,13 +17,14 @@ os.makedirs(FileDir +'/copyMD/', exist_ok=True)
 
 img_dir = FileDir +'/image/'
 
-githubUrl = 'https://github.com/2892211452/MDimg' 
+githubUrl = 'https://github.com/2892211452/MDimg'
 githubUrl = githubUrl.replace('https://github.com/', '')
 githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print('github 的链接 ： '+githubUrl)
 
-MDname = '实验室网络.md'
+from Config import *
+MDname = get_config()['md_name']
 
 
 def request_download(path,IMAGE_URL):
@@ -78,10 +78,6 @@ for i in lines:
             url = githubUrl + url
             print('图片在github上的链接 ： ' + url)
             i = i.replace(tmp, url)
-
-
-
-
 
         mdFile.write(i)
     except Exception as e:

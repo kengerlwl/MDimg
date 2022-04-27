@@ -1,3 +1,7 @@
-.idea
-
 venv
+.idea
+* text=auto
+*/__pycache__
+log
+Config/*.json
+!Config/example.json

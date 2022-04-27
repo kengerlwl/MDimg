@@ -83,8 +83,7 @@ for i in lines:
 
 ## 运行该文件
 
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comt7u2aK7.png)
-
+main.py
 
 查看运行后的md
 ![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comIQZHsl3.png)
