@@ -11,6 +11,7 @@ proxies = {"http": "http://127.0.0.1:7890", "https": "http://127.0.0.1:7890"}  #
 # 转换后的图片url前缀
 github_url = None
 md_name = None
+md_name_hash = None
 content = None
 md_file = None
 img_dir_pre = None  # 图片存储的目录
@@ -37,6 +38,7 @@ def init():
     global content
     global md_file
     global img_dir_pre
+    global md_name_hash
 
     github_url = 'https://github.com/' + conf['username'] + '/' + conf['repository']
     github_url = github_url.replace('https://github.com/', '')
@@ -45,12 +47,13 @@ def init():
     print('github image url 的链接前缀 ： ' + github_url)
 
     md_name = conf['md_name']
-    img_dir_pre = FileDir + '/image/' + md_name + '/'
+    md_name_hash = md5.my_md5(md_name)
+    img_dir_pre = FileDir + '/image/' + md_name_hash + '/'
 
     # 新建可能需要的目录
     os.makedirs(FileDir + '/image/', exist_ok=True)
     os.makedirs(FileDir + '/copyMD/', exist_ok=True)
-    os.makedirs(FileDir + '/image/' + md_name, exist_ok=True)
+    os.makedirs(FileDir + '/image/' + md_name_hash, exist_ok=True)
 
     with open(FileDir + '/sourcemd/' + md_name, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.readlines()
@@ -64,8 +67,9 @@ def img_pro(img_url):
     global content
     global md_file
     global img_dir_pre
+    global md_name_hash
     new_local_img_path = img_dir_pre + md5.my_md5(img_url) +'.png'
-    new_github_img_path = github_url + '/' + md_name +'/' + md5.my_md5(img_url) +'.png'
+    new_github_img_path = github_url + '/' + md_name_hash +'/' + md5.my_md5(img_url) +'.png'
     # http 图片
     if re.findall('http', img_url) != []:
         request_download(new_local_img_path , img_url)
