@@ -69,7 +69,7 @@ def img_pro(img_url):
     global img_dir_pre
     global md_name_hash
     new_local_img_path = img_dir_pre + md5.my_md5(img_url) +'.png'
-    new_github_img_path = github_url + '/' + md_name_hash +'/' + md5.my_md5(img_url) +'.png'
+    new_github_img_path = github_url + '/image/' + md_name_hash +'/' + md5.my_md5(img_url) +'.png'
     # http 图片
     if re.findall('http', img_url) != []:
         request_download(new_local_img_path , img_url)
