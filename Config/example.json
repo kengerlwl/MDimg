@@ -1,21 +1,6 @@
 {
-    "BASE": {
-        "cors_host": "0.0.0.0"
-    },
-    "WECHAT": {
-        "token": "",
-        "aes_key": "",
-        "corp_id": ""
-    },
-
-    "APPCONFIG": {
-        "agent_id": "",
-        "secret": ""
-    },
-    "REDIS": {
-        "host": "",
-        "password": "",
-        "db": 0,
-        "port": ""
-    }
+   "md_name": "v2ray与代理.md",
+   "proxy": "True",
+   "username": "",
+   "repository": ""
 }
