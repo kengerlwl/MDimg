@@ -68,7 +68,7 @@
 
 客户端配置
 
-![image-20220508111037368](https://raw.githubusercontent.com/2892211452/MDing/master/156b620b62a49031648046df7edb79c8/0c2f43eb4956ada1f07e22e4d848938a.png)
+![image-20220508111037368](https://raw.githubusercontent.com/2892211452/MDimg/master/156b620b62a49031648046df7edb79c8/0c2f43eb4956ada1f07e22e4d848938a.png)
 
 
 
@@ -106,7 +106,7 @@
 
 正向代理是代理的客户端，所有客户端都可以走代理服务器
 
-![image-20220508112316782](https://raw.githubusercontent.com/2892211452/MDing/master/156b620b62a49031648046df7edb79c8/4a451eb2a11a2a5e492df6b85db06d19.png)
+![image-20220508112316782](https://raw.githubusercontent.com/2892211452/MDimg/master/156b620b62a49031648046df7edb79c8/4a451eb2a11a2a5e492df6b85db06d19.png)
 
 
 
