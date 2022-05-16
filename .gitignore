@@ -5,3 +5,4 @@ venv
 log
 Config/*.json
 !Config/example.json
+.DS_Store
