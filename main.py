@@ -3,10 +3,9 @@ import os
 import 加密算法.mymd5 as md5
 import requests
 from PIL import Image
+from Config import *
 
 
-#当前文件目录路径
-FileDir = os.path.abspath(os.path.dirname(__file__))
 
 # 这里是我的代理， 如果不需要代理删除这个就行，
 proxies = {"http":"http://127.0.0.1:7890", "https":"http://127.0.0.1:7890"}  #设置http和https 代理
@@ -23,7 +22,7 @@ githubUrl = 'https://raw.githubusercontent.com/' + githubUrl
 githubUrl = githubUrl + '/master'
 print('github 的链接 ： '+githubUrl)
 
-from Config import *
+
 MDname = get_config()['md_name']
 
 
@@ -47,7 +46,6 @@ for i in lines:
         ans = re.findall('!.*(htt.*?)', i) # 检验有没有https图片
         ans2 = re.findall(r'/.*png',i) # 检验有没有本地图片
         if ans !=[]:
-            # print(ans)
 
             tmp = i.split('(')[1]
             tmp = tmp.replace(')', '')

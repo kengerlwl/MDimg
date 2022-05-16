@@ -2,7 +2,11 @@
 import json
 import os
 import logging
+#当前文件目录路径
+FileDir = os.path.abspath(os.path.dirname(__file__))
 
+# 返回上一级目录到根目录
+FileDir = FileDir + '/..'
 
 def get_config(run_env=None):
     # 读取配置文件
