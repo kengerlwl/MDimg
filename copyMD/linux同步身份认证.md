@@ -1,7 +1,7 @@
 # ldap 在linux上同步身份认证
 
-
 # 安装ldap及其管理器环境
+
 [参考compose文件](https://github.com/2892211452/docker_demo/tree/main/ldap_compose)
 
 安装完成后，可以看到管理界面
@@ -106,6 +106,7 @@ authconfig --enableldap --enableldapauth --ldapserver="110.40.*.*" --ldapbasedn=
 
 
 # 解决一些后序问题
+
 - ssh连接用户home目录没有的问题
 - 管理用户权限管理的问题。
     例如要执行docker命令，但是普通用户没有权限。
@@ -118,26 +119,32 @@ authconfig --enableldap --enableldapauth --ldapserver="110.40.*.*" --ldapbasedn=
 
 **bashrc_demo文件**
 ```
-# .bashrc
-
-# User specific aliases and functions
 
 # 封装docker命令
 alias docker="sudo /usr/bin/docker"
 
+```
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+**bash_profle_demo文件**
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+因为如果仅仅新建.bashrc 文件，那么ssh进取以后并不会一定执行，加入该文件能够ssh后自动执行bashrc文件。
+
+```
+# if running bash  
+if [ -n "$BASH_VERSION" ]; then  
+    # include .bashrc if it exists  
+    if [ -f "$HOME/.bashrc" ]; then  
+        . "$HOME/.bashrc"  
+    fi  
+fi 
 ```
 
 
+
+
+
 **shell 脚本**
+
 ```shell=
 #!/usr/bin/bash
 while(true)
@@ -145,7 +152,7 @@ do
     # 睡一秒
     sleep 1
 
-    home_dr=$(getent passwd  | grep /home/users | awk -F: '{print$6}')
+    home_dr=$(getent passwd  | grep /home | awk -F: '{print$6}')
     #echo $home_dr
     for i in $home_dr;
     do
@@ -159,12 +166,42 @@ do
         fi
 
 
-        #判断bashrc配置文件是否存在i
+        #判断bash_profile配置文件是否存在
+        file_pre="$i/.bash_profile"
+        if [ ! -f "$file_pre" ];
+         then
+          #cp bash_profile_demo "$file_pre"
+          echo "创建文件" "$file_pre"
+        fi
+
+        #判断bashrc配置文件是否存在
         file="$i/.bashrc"
-        if [ ! -f "$file" ]; then
+        #file=/home/liuwenlong/.bashrc
+        if [ ! -f "$file" ];
+         then
           cp bashrc_demo "$file"
           echo "创建文件" $file
+         else
+          echo 'file存在'
+          # 选择去除空行和注释后的命令，判断是否需要加入
+          cat bashrc_demo | grep -v '#' | grep -v '^$' | while read line
+          do
+                    #echo $line
+
+                    # 判断匹配函数，匹配函数不为0，则包含给定字符
+                    if [ ! `grep -c "$line" $file` -ne '0' ];
+                    then
+                        echo "没有命令行 $line ,补上 "
+                        echo "$line" >> $file
+
+                    fi
+
+
+          done
+
         fi
+            
+        
 
     done
 
