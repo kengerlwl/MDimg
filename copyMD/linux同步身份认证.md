@@ -85,8 +85,8 @@ systemctl restart nslcd
 systemctl restart sshd
 ```
 
+## 配置自动同步authconfig，不然密码认证可能不过
 
-## 配置自动同步authconfig，不然密码认证不过
 安装`yum install authconfig`
 
 运行：
