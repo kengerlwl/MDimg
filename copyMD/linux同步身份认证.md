@@ -27,6 +27,16 @@ ldapsearch -x -H ldap://110.40.*.*:389 -b dc=lwl,dc=com -D "cn=admin,dc=lwl,dc=c
 
 
 
+**注，如果是Ubuntu，那么直接安装**
+
+```
+apt-get install libnss-ldapd libpam-ldapd 
+```
+
+
+
+
+
 ## linux本地配置相关文件
 
 `vi /etc/nsswitch.conf`
@@ -116,13 +126,12 @@ authconfig --enableldap --enableldapauth --ldapserver="110.40.*.*" --ldapbasedn=
 
 写一个脚本去监听所有用户，如果当前用户没有home目录，就新建。然后针对每个用户，在.bashrc文件里面对sudo进行alias别名封装一部分docker命令。
 
-
 **bashrc_demo文件**
+
 ```
 
 # 封装docker命令
 alias docker="sudo /usr/bin/docker"
-
 ```
 
 **bash_profle_demo文件**
@@ -145,37 +154,43 @@ fi
 
 **shell 脚本**
 
+- 检查所有用户目录是否创建，没有就建立
+- 检查所有用户的.bashrc等配置文件是否创建
+  - 没有就创建demo
+  - 有的话就比对我们需要缝合进去的命令，如果缺少就加入（这样可以当个人修改了一些自己需要的bashrc配置后，可以继续在上一个人的基础上添加公共配置）
+
 ```shell=
 #!/usr/bin/bash
 while(true)
 do
     # 睡一秒
     sleep 1
-
-    home_dr=$(getent passwd  | grep /home | awk -F: '{print$6}')
-    #echo $home_dr
-    for i in $home_dr;
+		
+		# 如果后序匹配特征变了，可以适当改变grep的匹配规则
+    home_drs=$(getent passwd  | grep /home | awk -F: '{print$6}')
+    #echo $home_drs
+    for home_dr in $home_drs;
     do
 
-        #echo $i
+        #echo $home_dr
 
         #判断用户文件夹是否存在
-        if [ ! -d "$i" ]; then
-          mkdir $i
-          echo "创建文件夹" $i
+        if [ ! -d "$home_dr" ]; then
+          mkdir $home_dr
+          echo "创建文件夹" $home_dr
         fi
 
 
         #判断bash_profile配置文件是否存在
-        file_pre="$i/.bash_profile"
+        file_pre="$home_dr/.bash_profile"
         if [ ! -f "$file_pre" ];
          then
-          #cp bash_profile_demo "$file_pre"
+          cp bash_profile_demo "$file_pre"
           echo "创建文件" "$file_pre"
         fi
 
         #判断bashrc配置文件是否存在
-        file="$i/.bashrc"
+        file="$home_dr/.bashrc"
         #file=/home/liuwenlong/.bashrc
         if [ ! -f "$file" ];
          then
@@ -195,26 +210,24 @@ do
                         echo "$line" >> $file
 
                     fi
-
-
           done
 
         fi
-            
-        
-
+         
     done
 
 
 done
 ```
 
-
 **sudoers文件**
+
 ```
 # ldap组执行权限开放 docker 命令
 %group1  ALL=(ALL)      NOPASSWD:/usr/bin/docker
 ```
+
+
 
 # ref
 

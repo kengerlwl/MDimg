@@ -94,10 +94,17 @@ def main():
         # print(image_urls)
         if image_urls != []:
             # print(image_urls)
-            git_url = img_pro(image_urls[0])
-            print(git_url)
-            line = line.replace(image_urls[0], git_url)
-            pass
+            try:
+                image_url = image_urls[0]
+                if image_url.find("raw.githubusercontent.com"):
+                    raise Exception("已经是github图源了")
+
+                git_url = img_pro(image_url)
+                print(git_url)
+                line = line.replace(image_url, git_url)
+            except Exception as e:
+                print(e)
+                pass
         else:
             pass
         md_file.write(line)

@@ -1,9 +1,15 @@
 from main import *
-
 import os
-filePath = './sourcemd'
+
+"""
+对一个文件夹内部的多个md文件进行批处理换源
+"""
+
+
+# 文件夹路径
+dr_Path = './sourcemd'
 files =[]
-for i,j,k in os.walk(filePath):
+for i,j,k in os.walk(dr_Path):
     # print(i,j,k)
     files.extend(k)
 print(files)
