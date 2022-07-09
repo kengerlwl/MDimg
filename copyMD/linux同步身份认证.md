@@ -117,124 +117,117 @@ authconfig --enableldap --enableldapauth --ldapserver="110.40.*.*" --ldapbasedn=
 
 # 解决一些后序问题
 
-- ssh连接用户home目录没有的问题
-- 管理用户权限管理的问题。
-    例如要执行docker命令，但是普通用户没有权限。
+- 解决一些后序问题
 
+    - ssh连接用户home目录没有的问题
+    - 管理用户权限管理的问题。 例如要执行docker命令，但是普通用户没有权限。
 
-**solution：**
+    **solution：**
 
-写一个脚本去监听所有用户，如果当前用户没有home目录，就新建。然后针对每个用户，在.bashrc文件里面对sudo进行alias别名封装一部分docker命令。
+    写一个脚本去监听所有用户，如果当前用户没有home目录，就新建。然后针对每个用户，在.bashrc文件里面对sudo进行alias别名封装一部分docker命令。
 
-**bashrc_demo文件**
+    **bashrc_demo文件**
 
-```
+    ```
+    
+    # 封装docker命令
+    alias docker="sudo /usr/bin/docker"
+    ```
 
-# 封装docker命令
-alias docker="sudo /usr/bin/docker"
-```
+    **bash_profle_demo文件**
 
-**bash_profle_demo文件**
+    因为如果仅仅新建.bashrc 文件，那么ssh进去以后并不会一定执行，加入该文件能够ssh后自动执行bashrc文件。
 
-因为如果仅仅新建.bashrc 文件，那么ssh进取以后并不会一定执行，加入该文件能够ssh后自动执行bashrc文件。
+    ```
+    # if running bash  
+    if [ -n "$BASH_VERSION" ]; then  
+        # include .bashrc if it exists  
+        if [ -f "$HOME/.bashrc" ]; then  
+            . "$HOME/.bashrc"  
+        fi  
+    fi 
+    ```
 
-```
-# if running bash  
-if [ -n "$BASH_VERSION" ]; then  
-    # include .bashrc if it exists  
-    if [ -f "$HOME/.bashrc" ]; then  
-        . "$HOME/.bashrc"  
-    fi  
-fi 
-```
+    **shell 脚本**
 
+    - 检查所有用户目录是否创建，没有就建立
+    - 检查所有用户的.bashrc等配置文件是否创建
+      - 没有就创建demo
+      - 有的话就比对我们需要缝合进去的命令，如果缺少就加入（这样可以当个人修改了一些自己需要的bashrc配置后，可以继续在上一个人的基础上添加公共配置）
 
-
-
-
-**shell 脚本**
-
-- 检查所有用户目录是否创建，没有就建立
-- 检查所有用户的.bashrc等配置文件是否创建
-  - 没有就创建demo
-  - 有的话就比对我们需要缝合进去的命令，如果缺少就加入（这样可以当个人修改了一些自己需要的bashrc配置后，可以继续在上一个人的基础上添加公共配置）
-
-```shell=
-#!/usr/bin/bash
-while(true)
-do
-    # 睡一秒
-    sleep 1
-		
-		# 如果后序匹配特征变了，可以适当改变grep的匹配规则
-    home_drs=$(getent passwd  | grep /home | awk -F: '{print$6}')
-    #echo $home_drs
-    for home_dr in $home_drs;
+    ```
+    #!/usr/bin/bash
+    while(true)
     do
-
-        #echo $home_dr
-
-        #判断用户文件夹是否存在
-        if [ ! -d "$home_dr" ]; then
-          mkdir $home_dr
-          echo "创建文件夹" $home_dr
-        fi
-
-
-        #判断bash_profile配置文件是否存在
-        file_pre="$home_dr/.bash_profile"
-        if [ ! -f "$file_pre" ];
-         then
-          cp bash_profile_demo "$file_pre"
-          echo "创建文件" "$file_pre"
-        fi
-
-        #判断bashrc配置文件是否存在
-        file="$home_dr/.bashrc"
-        #file=/home/liuwenlong/.bashrc
-        if [ ! -f "$file" ];
-         then
-          cp bashrc_demo "$file"
-          echo "创建文件" $file
-         else
-          echo 'file存在'
-          # 选择去除空行和注释后的命令，判断是否需要加入
-          cat bashrc_demo | grep -v '#' | grep -v '^$' | while read line
-          do
-                    #echo $line
-
-                    # 判断匹配函数，匹配函数不为0，则包含给定字符
-                    if [ ! `grep -c "$line" $file` -ne '0' ];
-                    then
-                        echo "没有命令行 $line ,补上 "
-                        echo "$line" >> $file
-
-                    fi
-          done
-
-        fi
-         
+        # 睡一秒
+        sleep 1
+        
+        # 如果后序匹配特征变了，可以适当改变grep的匹配规则
+        home_drs=$(getent passwd  | grep /home | awk -F: '{print$6}')
+        #echo $home_drs
+        for home_dr in $home_drs;
+        do
+    
+            #echo $home_dr
+    
+            #判断用户文件夹是否存在
+            if [ ! -d "$home_dr" ]; then
+              mkdir $home_dr
+              echo "创建文件夹" $home_dr
+            fi
+    
+    
+            #判断bash_profile配置文件是否存在
+            file_pre="$home_dr/.bash_profile"
+            if [ ! -f "$file_pre" ];
+             then
+              cp bash_profile_demo "$file_pre"
+              echo "创建文件" "$file_pre"
+            fi
+    
+            #判断bashrc配置文件是否存在
+            file="$home_dr/.bashrc"
+            #file=/home/liuwenlong/.bashrc
+            if [ ! -f "$file" ];
+             then
+              cp bashrc_demo "$file"
+              echo "创建文件" $file
+             else
+              echo 'file存在'
+              # 选择去除空行和注释后的命令，判断是否需要加入
+              cat bashrc_demo | grep -v '#' | grep -v '^$' | while read line
+              do
+                        #echo $line
+    
+                        # 判断匹配函数，匹配函数不为0，则包含给定字符
+                        if [ ! `grep -c "$line" $file` -ne '0' ];
+                        then
+                            echo "没有命令行 $line ,补上 "
+                            echo "$line" >> $file
+    
+                        fi
+              done
+    
+            fi
+             
+        done
+    
+    
     done
+    ```
 
+    **sudoers文件**
 
-done
-```
+    ```
+    # ldap组执行权限开放 docker 命令
+    %group1  ALL=(ALL)      NOPASSWD:/usr/bin/docker
+    ```
 
-**sudoers文件**
+    # ref
 
-```
-# ldap组执行权限开放 docker 命令
-%group1  ALL=(ALL)      NOPASSWD:/usr/bin/docker
-```
+    [OpenLDAP同步linux用户](https://blog.csdn.net/weixin_42728895/article/details/114540168) [linux nslcd服务,](https://blog.csdn.net/weixin_42101056/article/details/116740544?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5-116740544-blog-116740538.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5-116740544-blog-116740538.pc_relevant_default&utm_relevant_index=10)
 
+    [CentOS 6通过ldap集成AD域账号(nslcd方式)](https://blog.csdn.net/weixin_42101056/article/details/116740544?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5-116740544-blog-116740538.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-5-116740544-blog-116740538.pc_relevant_default&utm_relevant_index=10)
 
-
-# ref
-
-[OpenLDAP同步linux用户
-](https://blog.csdn.net/weixin_42728895/article/details/114540168)
-[linux nslcd服务,CentOS 6通过ldap集成AD域账号(nslcd方式)
-](https://blog.csdn.net/weixin_42101056/article/details/116740544?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-5-116740544-blog-116740538.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-5-116740544-blog-116740538.pc_relevant_default&utm_relevant_index=10)
-
-[配置Linux使用LDAP用户认证的方法
-](https://cloud.tencent.com/developer/article/1721854?from=15425)
+    [配置Linux使用LDAP用户认证的方法](https://cloud.tencent.com/developer/article/1721854?from=15425)
+- ](https://cloud.tencent.com/developer/article/1721854?from=15425)

@@ -7,3 +7,4 @@ Config/*.json
 !Config/example.json
 .DS_Store
 .DS_Store
+.DS_Store
