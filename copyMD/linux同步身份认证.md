@@ -83,10 +83,12 @@ BASE dc=lwl,dc=com
 ```
 
 为了解决新建用户后没有home目录的问题。
-配置`vi /etc/pam.d/system-auth`
-新增一行配置进取
 ```
+# 在su的时候新建home目录。配置vi /etc/pam.d/system-auth 新增一行配置
 session required pam_mkhomedir.so skel=/etc/skel umask=0022
+
+# 在ssh的时候新建home目录， 在/etc/pam.d/sshd后面新增一行
+session    required     pam_mkhomedir.so 
 ```
 
 **配置完后，启动相关程序**

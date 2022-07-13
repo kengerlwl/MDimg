@@ -108,6 +108,7 @@ Openwrt network 检测
 想来也是傻逼，网络都没了，怎么发送消息报错啊
 
 ```
+#!/bin/bash
 send_msg(){
 
 wget --quiet \
@@ -128,6 +129,7 @@ sleep 60
 # set try 2 times, and timeout is 1 second
 
 net_out=$(ping -c 2 -i 1  baidu.com | grep ttl=)
+iw wlan1 info
 if [ ! "$net_out" = "" ]
 then
   echo "network exist, $net_out"
