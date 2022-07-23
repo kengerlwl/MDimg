@@ -109,6 +109,7 @@ Openwrt network 检测
 
 ```
 #!/bin/bash
+
 send_msg(){
 
 wget --quiet \
@@ -123,17 +124,23 @@ wget --quiet \
 while((true))
 do
 
-sleep 60
+sleep 120
 
 
 # set try 2 times, and timeout is 1 second
 
 net_out=$(ping -c 2 -i 1  baidu.com | grep ttl=)
-iw wlan1 info
+# iw wlan1 info
+
 if [ ! "$net_out" = "" ]
 then
-  echo "network exist, $net_out"
+	net_ok
+  #echo "network exist, $net_out"
 else
+date
+  # restrat the network service
+wifi down && wifi up   # 重启wifi
+/etc/init.d/network restart  #重启网络进程
   send_msg
   echo "network fail"
 fi
