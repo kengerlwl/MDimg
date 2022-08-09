@@ -72,3 +72,50 @@ for row in CRAN_data.iterrows():
     print(row[1].values)
 ```
 
+
+
+
+## 查看某一列的特征：平均值，count统计，max，min，std方差
+
+```
+data_projects["Platform"].value_counts()
+data_projects["Platform"].min()
+# 以及mean(), max(),
+```
+**dataF.describe()**可以一次性查看表的各项属性的特征
+
+
+
+
+
+# numpy
+
+## 关于reshape
+
+快速改变向量的shape。但是并不会改变原始的顺序。
+
+**也就说说，如果按照从里到外的遍历顺序，那么无论怎么reshape的顺序是不会变的。**
+
+初期数据及库准备：
+
+import numpy as np  # 调用numpy库
+# 设置一个1-18的列表
+```
+anchors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+#将anchors由列表转换为数组的形式
+anchors = np.array(anchors)
+
+一维reshape() 为 二维
+18个元素一维度数组，可以转换为2 x 9 及 3 X 6的二维数组
+
+print(anchors.reshape([3,6]))  # 生成一个（3，6）的二维数组
+
+print(anchors.reshape([2,9]))  # 生成一个（2，9）的二维数组
+```
+
+![3，6的输出结果](https://img-blog.csdnimg.cn/2cfa7cac1afe4bd99e92ac3da0358cf1.png#pic_center)
+
+
+![](https://img-blog.csdnimg.cn/374c35d44a6148d680b82b630b9d4a06.png#pic_center)
+
+
