@@ -2,8 +2,8 @@
 
 
 
-
 ## 行列
+
 ```
 # 获取某一列
 data['key']
@@ -99,7 +99,8 @@ data_projects["Platform"].min()
 初期数据及库准备：
 
 import numpy as np  # 调用numpy库
-# 设置一个1-18的列表
+**设置一个1-18的列表**
+
 ```
 anchors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 #将anchors由列表转换为数组的形式
@@ -117,5 +118,152 @@ print(anchors.reshape([2,9]))  # 生成一个（2，9）的二维数组
 
 
 ![](https://img-blog.csdnimg.cn/374c35d44a6148d680b82b630b9d4a06.png#pic_center)
+
+
+
+
+
+## 关于计算
+
+**可以直接做逻辑运算。**
+
+```
+num = np.array([0,1,2,1,0,1,0])
+num == 1
+```
+
+```
+array([False,  True, False,  True, False,  True, False])
+```
+
+**可以直接做算数运算**
+
+```
+num = np.array([0,1,2,1,0,1,0])
+num*2
+```
+
+```
+array([0, 2, 4, 2, 0, 2, 0])
+```
+
+
+
+## 条件选择数据
+
+**先获取索引，通过where函数**
+
+```
+num = np.array([0,1,2,1,0,1,0])
+
+np.where(num == 1)
+```
+
+```
+(array([1, 3, 5]),)
+```
+
+
+
+**然后可以通过index，筛选数据**
+
+```
+num = np.array([0,1,2,1,0,1,0])
+
+index = np.where(num == 1)
+index, num[index]
+
+out:
+((array([1, 3, 5]),), array([1, 1, 1]))
+```
+
+
+
+## 关于随机选择数据
+
+**同上，只不过把index的获取变成随机。**
+
+```
+import random
+def getRandomIndex(n, x):
+	# 索引范围为[0, n), 随机选x个不重复
+    index = random.sample(range(n), x)
+    return index
+```
+
+## 将数据打乱
+
+**同样也可以用index，因为index可以打算顺序。所以可以用这张方式来讲数据打乱**
+
+
+
+# pytorch
+
+
+
+## Pytorch之permute函数， 变换维度的重要函数
+
+在lstm中，我们的数据通常是，batch， seq， dim。
+
+但是要求输入却是：seq， batch， dim
+
+所以需要做数据变换，但是传统的reshape，和view并不能改变数据的底层排列顺序。
+
+这种时候就需要用到permute函数。
+
+**Tensor.permute(a,b,c,d, ...)**：permute函数可以对任意高维矩阵进行转置，但没有 torch.permute() 这个调用方式， 只能 Tensor.permute()：
+
+（abcd）是index，**个人可以理解为改变检索方式**
+
+
+
+```
+a = tensor[a][b][c]
+b = a.permute(2,1,0)
+那么相当于吧检索的顺序改变一下。
+也就是说会有：
+a[A][B][C] = b[C][A][B]
+```
+
+```
+import torch
+import numpy as np
+
+a=np.array([[[1,2,3],[4,5,6]]])
+unpermuted=torch.tensor(a)
+print(unpermuted.size())              #  ——>  torch.Size([1, 2, 3])
+
+permuted=unpermuted.permute(2,0,1)
+print(permuted.size())                #  ——>  torch.Size([3, 1, 2])
+
+view_test = unpermuted.view(1,3,2)
+print(view_test.size())    
+```
+
+
+
+## 乘法
+
+**Torch.mm(): 对两个二维矩阵做矩阵的乘法**
+
+```
+torch.mm(a, b)
+```
+
+**Torch.matmul():输入可以是高维的。**
+当输入是都是二维时，就是普通的矩阵乘法，和tensor.mm函数用法相同。
+
+**当输入有多维时，把多出的一维作为batch提出来，其他部分做矩阵乘法。**
+
+![image-20220810220646801](/Users/lwl/Library/Application Support/typora-user-images/image-20220810220646801.png)
+
+
+
+或者都是3维的
+
+![image-20220810220708808](/Users/lwl/Library/Application Support/typora-user-images/image-20220810220708808.png)
+
+
+
 
 
