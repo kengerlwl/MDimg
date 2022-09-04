@@ -4,7 +4,7 @@ venv
 */__pycache__
 log
 Config/*.json
-!Config/example.json
+!../file_proxy/Config/example.json
 .DS_Store
 .DS_Store
 .DS_Store
