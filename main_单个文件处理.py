@@ -52,13 +52,13 @@ def init():
 
     # 新建可能需要的目录
     os.makedirs(FileDir + '/image/', exist_ok=True)
-    os.makedirs(FileDir + '/copyMD/', exist_ok=True)
+    os.makedirs(FileDir + '/copyMDout/', exist_ok=True)
     os.makedirs(FileDir + '/image/' + md_name_hash, exist_ok=True)
 
     with open(FileDir + '/sourcemd/' + md_name, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.readlines()
 
-    md_file = open(FileDir + '/copyMD/' + md_name, 'w', encoding='utf-8', )
+    md_file = open(FileDir + '/copyMDout/' + md_name, 'w', encoding='utf-8', )
 
 
 def img_pro(img_url):
@@ -96,7 +96,9 @@ def main():
             # print(image_urls)
             try:
                 image_url = image_urls[0]
-                if image_url.find("raw.githubusercontent.com"):
+                print(image_url)
+                if image_url.find("raw.githubusercontent.com") != -1:
+                    # print(image_url.find("raw.githubusercontent.com"))
                     raise Exception("已经是github图源了")
 
                 git_url = img_pro(image_url)
