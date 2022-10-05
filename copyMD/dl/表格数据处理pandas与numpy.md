@@ -78,7 +78,8 @@ for row in CRAN_data.iterrows():
 ## 查看某一列的特征：平均值，count统计，max，min，std方差
 
 ```
-data_projects["Platform"].value_counts()
+data_projects["Platform"].unique() # 查看共有多少中可能的取值
+data_projects["Platform"].value_counts() # 同个各个离散变量的个数
 data_projects["Platform"].min()
 # 以及mean(), max(),
 ```

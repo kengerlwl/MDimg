@@ -150,6 +150,67 @@ done
 
 
 
+## awk命令
+
+空格输出多个变量
+
+```
+echo $(seq 1 9) | awk '{ print $5,$6,$7}' | while read a b c
+```
+
+指定分割符
+
+```
+awk -F ',' '{print $2, $3}' employee.txt
+```
+
+printf格式化输出
+
+```
+ pip list | awk -F ' ' '{printf("%s==%s\n", $1, $2)}' 
+```
+
+
+
+
+
+
+
+## sed 命令
+
+```
+#匹配行前加
+sed -i '/allow 361way.com   /iallow www.361way.com' the.conf.file
+#匹配行前后
+sed -i '/allow 361way.com   /aallow www.361way.com' the.conf.file
+```
+
+**行前后添加**
+
+```
+
+在首行前插入一行
+# sed -i '1i\AAA' aa.txt
+在首行后插入一行
+# sed -i '1a\AAA' aa.txt 
+
+在尾行前插入一行
+# sed -i '$i\AAA' aa.txt 
+在尾行后插入一样
+# sed -i '$a\AAA' aa.txt 
+
+
+# 第n行前添加一行
+# sed -i 'ni\AAA' aa.txt
+
+```
+
+
+
+
+
+
+
 ## Mac /linux常用的命令
 
 **大部分linux都能够直接用**
@@ -201,3 +262,54 @@ nload device en0
 - **/** 每过多少个数字
 - **-** 从X到Z
 - **，**散列数字
+
+
+
+
+
+### 自动输入y 确认
+
+
+
+
+
+# docker 容器相关的命令
+
+**一些容器没有su命令。**
+
+安装的方式
+
+```
+-bash/zsh: su: command not found
+ 
+#Debian
+apt-get install util-linux
+ 
+#Ubuntu
+apt-get install util-linux
+ 
+#Alpine
+apk add util-linux
+ 
+#Arch Linux
+pacman -S util-linux
+ 
+#Kali Linux
+apt-get install util-linux
+ 
+#CentOS
+yum install util-linux
+ 
+#Fedora
+dnf install util-linux
+ 
+#OS X
+brew install util-linux
+ 
+#Raspbian
+apt-get install login
+ 
+#Docker
+docker run cmd.cat/su su
+```
+

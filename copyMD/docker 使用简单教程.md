@@ -319,7 +319,6 @@ ssh 启动文件路径：/usr/sbin/
 然后输入用户名和密码：成功
 ![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/91e15ed4a577cd55d7e4a4843d293fe7/b838a9e0bf009a959a03c1b9f2593fe1.png)
 
-
 ## docker Hub的使用
 
 先在hub中建立一个名叫centos_demo的仓库，我的用户名是`${username}`

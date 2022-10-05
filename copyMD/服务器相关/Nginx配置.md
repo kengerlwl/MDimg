@@ -1,7 +1,9 @@
 # Nginx配置
 
 ## Nginx的基本命令
+
 ```
+nginx # 开启
 nginx -s reload     #重新加载配置文件
 nginx -s reopen     #重新打开log文件
 nginx -s stop       #快速关闭nginx服务
