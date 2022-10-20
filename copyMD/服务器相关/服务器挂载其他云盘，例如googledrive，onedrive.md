@@ -153,7 +153,7 @@ df -h
 基本流程和上面是一致的，但是要注意：
 - 这个要选择第一个
 
-- ![image-20220917175707801](/Users/lwl/Library/Application Support/typora-user-images/image-20220917175707801.png)
+- ![image-20220917175707801](https://raw.githubusercontent.com/2892211452/MDimg/master/image/ddc552e2fb60427a31c6b3d28ba21944/e3aedbb01414ee61a82b89679d49abfa.png)
 
   
 

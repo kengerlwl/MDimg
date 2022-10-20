@@ -121,6 +121,16 @@ rclone mount GoogleDrive: /google --allow-other --allow-non-empty --vfs-cache-mo
 
 
 
+挂载onedrive
+
+```
+rclone mount one_drive_test1: /onedrive --allow-other --allow-non-empty --vfs-cache-mode writes
+```
+
+
+
+
+
 # 查看
 
 ```
@@ -132,6 +142,20 @@ df -h
 
 
 可以正常访问。
+
+
+
+
+
+# 关于挂载onedrive云盘。
+
+我这里用的是从pdd上买的5T永久免费盘。
+基本流程和上面是一致的，但是要注意：
+- 这个要选择第一个
+
+- ![image-20220917175707801](https://raw.githubusercontent.com/2892211452/MDimg/master/image/ddc552e2fb60427a31c6b3d28ba21944/e3aedbb01414ee61a82b89679d49abfa.png)
+
+  
 
 
 

@@ -23,12 +23,12 @@ rpm -aq | grep yum | xargs rpm -e --nodeps
 ```
 
 3、查看
-![在这里插入图片描述](https://img.inotgo.com/imagesLocal/202208/13/202208131252495003_6.png)4、下载rpm,repo包
+![在这里插入图片描述](https://raw.githubusercontent.com/2892211452/MDimg/master/image/27b7ca39ce6c419cd68af06fd49a272f/241b49e237d99be4e243b97589b581d7.png)4、下载rpm,repo包
 
 （1）在此网易镜像链接下载http://tel.mirrors.163.com/centos/7/os/x86_64/Packages/
 （2）五个包
-![在这里插入图片描述](https://img.inotgo.com/imagesLocal/202208/13/202208131252495003_7.png)(3)rz 命令上传到linux
-![在这里插入图片描述](https://img.inotgo.com/imagesLocal/202208/13/202208131252495003_3.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/2892211452/MDimg/master/image/27b7ca39ce6c419cd68af06fd49a272f/ef4c4c82c72b7d896aad845a469e749d.png)rz 命令上传到linux
+![在这里插入图片描述](https://raw.githubusercontent.com/2892211452/MDimg/master/image/27b7ca39ce6c419cd68af06fd49a272f/1bb64276b5392a8319f70bd9e769587d.png)
 (4)安装
 
 ```bash
@@ -37,7 +37,7 @@ rpm -ivh python-2.7.5-89.el7.x86_64.rpm python-iniparse-0.4-9.el7.noarch.rpm --n
 rpm -ivh yum-3.4.3-168.el7.centos.noarch.rpm yum-plugin-fastestmirror-1.1.31-54.el7_8.noarch.rpm --nodeps --force
 ```
 
-![在这里插入图片描述](https://img.inotgo.com/imagesLocal/202208/13/202208131252495003_10.png)5、更改yum源
+![在这里插入图片描述](https://raw.githubusercontent.com/2892211452/MDimg/master/image/27b7ca39ce6c419cd68af06fd49a272f/4c89387e6f7e7c3a1333462e90bcccbb.png)5、更改yum源
 
 （1）备份/etc/yum.repos.d/CentOS-Base.repo
 
@@ -59,7 +59,7 @@ yum clean all
 yum makecache
 ```
 
-![在这里插入图片描述](https://img.inotgo.com/imagesLocal/202208/13/202208131252495003_13.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/2892211452/MDimg/master/image/27b7ca39ce6c419cd68af06fd49a272f/22bd672a873024b4f724f2cedc72c645.png)
 6、检查
 
 ```bash

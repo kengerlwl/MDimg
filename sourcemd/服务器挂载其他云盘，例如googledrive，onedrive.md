@@ -39,7 +39,7 @@ q) Quit config
 
 然后有：
 
-![image-20220831231450455](/Users/lwl/Library/Application Support/typora-user-images/image-20220831231450455.png)
+![image-20220831231450455](https://raw.githubusercontent.com/2892211452/MDimg/master/image/ddc552e2fb60427a31c6b3d28ba21944/e20ca46f10ffdeabd997126b304abd69.png)
 
 **对于这个id以及secret，输入enter跳过就行。**
 
@@ -121,17 +121,41 @@ rclone mount GoogleDrive: /google --allow-other --allow-non-empty --vfs-cache-mo
 
 
 
+挂载onedrive
+
+```
+rclone mount one_drive_test1: /onedrive --allow-other --allow-non-empty --vfs-cache-mode writes
+```
+
+
+
+
+
 # 查看
 
 ```
 df -h
 ```
 
-![image-20220831232119105](/Users/lwl/Library/Application Support/typora-user-images/image-20220831232119105.png)
+![image-20220831232119105](https://raw.githubusercontent.com/2892211452/MDimg/master/image/ddc552e2fb60427a31c6b3d28ba21944/f6eb5fd59ff3bb26216f102f0fbe03fd.png)
 
 
 
 可以正常访问。
+
+
+
+
+
+# 关于挂载onedrive云盘。
+
+我这里用的是从pdd上买的5T永久免费盘。
+基本流程和上面是一致的，但是要注意：
+- 这个要选择第一个
+
+- ![image-20220917175707801](/Users/lwl/Library/Application Support/typora-user-images/image-20220917175707801.png)
+
+  
 
 
 

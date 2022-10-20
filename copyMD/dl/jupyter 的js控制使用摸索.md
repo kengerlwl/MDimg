@@ -81,7 +81,7 @@ Jupyter.notebook.execute_cells_below()
 ### 一个简单的goto demo
 
 ````
-for(var i=0; i<30; i++){
+for(var i=0; i<100; i++){
   Jupyter.notebook.select(15);
   Jupyter.notebook.execute_cells_below();
 }

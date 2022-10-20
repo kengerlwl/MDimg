@@ -306,7 +306,7 @@ groupdel g1
 
 显示的内容如下：
 
-![image-20221020134132328](https://raw.githubusercontent.com/2892211452/MDimg/master/image/c53b935433a115d5732aa06e1e6ac8ac/c234ce26fdf4bffb347bab59d0e47f76.png)
+![image-20221020134132328](/Users/lwl/Library/Application Support/typora-user-images/image-20221020134132328.png)
 
 其中的kenger.txt表示属于kenger用户，files用户组。同组的具有rwx权限。
 
