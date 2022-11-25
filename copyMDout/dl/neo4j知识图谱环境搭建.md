@@ -58,7 +58,7 @@ liunx环境[Neo4j](https://so.csdn.net/so/search?q=Neo4j&spm=1001.2101.3001.7020
 
 然后有结果。
 
-![image-20220905200159871](/Users/lwl/Library/Application Support/typora-user-images/image-20220905200159871.png)
+![image-20220905200159871](https://raw.githubusercontent.com/2892211452/MDimg/master/image/2970cc53434809d84eb89184b8668416/c5908950b106327c9027b735adf63d7d.png)
 
 停止
 

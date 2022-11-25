@@ -115,10 +115,10 @@ print(anchors.reshape([3,6]))  # 生成一个（3，6）的二维数组
 print(anchors.reshape([2,9]))  # 生成一个（2，9）的二维数组
 ```
 
-![3，6的输出结果](https://img-blog.csdnimg.cn/2cfa7cac1afe4bd99e92ac3da0358cf1.png#pic_center)
+![3，6的输出结果](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/9ec3d81b9886a9b6d751e9e145518f23.png)
 
 
-![](https://img-blog.csdnimg.cn/374c35d44a6148d680b82b630b9d4a06.png#pic_center)
+![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/0004c0b6293458212380c228bf736518.png)
 
 
 
@@ -256,13 +256,13 @@ torch.mm(a, b)
 
 **当输入有多维时，把多出的一维作为batch提出来，其他部分做矩阵乘法。**
 
-![image-20220810220646801](/Users/lwl/Library/Application Support/typora-user-images/image-20220810220646801.png)
+![image-20220810220646801](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/c7ce7933f5a1baba8ebc85bfd13b4006.png)
 
 
 
 或者都是3维的
 
-![image-20220810220708808](/Users/lwl/Library/Application Support/typora-user-images/image-20220810220708808.png)
+![image-20220810220708808](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/0ebe7a860eea98353e1c43872d6b9e6f.png)
 
 
 

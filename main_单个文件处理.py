@@ -59,7 +59,7 @@ def init():
     with open(conf['complete_name'], 'r', encoding='utf-8', errors='ignore') as f:
         content = f.readlines()
 
-    md_file = open(FileDir + '/copyMDout/' + md_name, 'w', encoding='utf-8', )
+    md_file = open(conf['complete_name'], 'w', encoding='utf-8', )
 
 
 def img_pro(img_url):

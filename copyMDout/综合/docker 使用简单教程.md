@@ -203,7 +203,7 @@ bash：跟 -it 命令结合在一起操作，使容器创建后处于前端，�
 然后有结果
 
 
-![image-20220821221517801](/Users/lwl/Library/Application Support/typora-user-images/image-20220821221517801.png)    
+![image-20220821221517801](https://raw.githubusercontent.com/2892211452/MDimg/master/image/91e15ed4a577cd55d7e4a4843d293fe7/36aa2ebb232c0b8c9902fc27bbf26a87.png)    
 ### 进入容器
 
 **方法一**

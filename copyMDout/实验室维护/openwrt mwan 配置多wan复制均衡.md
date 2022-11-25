@@ -17,7 +17,7 @@ mwan是一个openwrt上的插件，可以实现多wan口的上网流量管理。
 
 **前置wan注意点**
 
-![image-20221123161720081](/Users/lwl/Library/Application Support/typora-user-images/image-20221123161720081.png)
+![image-20221123161720081](https://raw.githubusercontent.com/2892211452/MDimg/master/image/daa0b5992d6a9fb3beceed9958bce7d2/69f39d16d3ab39412c53f8f8475611b7.png)
 
 - 网关跳跃点必须要有且不能重复
 
@@ -37,7 +37,7 @@ mwan是一个openwrt上的插件，可以实现多wan口的上网流量管理。
 
 中文界面如图
 
-![image-20221123162109769](/Users/lwl/Library/Application Support/typora-user-images/image-20221123162109769.png)
+![image-20221123162109769](https://raw.githubusercontent.com/2892211452/MDimg/master/image/daa0b5992d6a9fb3beceed9958bce7d2/c1ce390fe53621853b87cf77894af00f.png)
 
 
 
@@ -45,7 +45,7 @@ mwan是一个openwrt上的插件，可以实现多wan口的上网流量管理。
 
 **如何查看mwan的界面情况**
 
-![image-20221123162154984](/Users/lwl/Library/Application Support/typora-user-images/image-20221123162154984.png)
+![image-20221123162154984](https://raw.githubusercontent.com/2892211452/MDimg/master/image/daa0b5992d6a9fb3beceed9958bce7d2/86075dec89b7acb30956f427dd9bc216.png)
 
 在这个界面可以看到各个接口的在线情况
 
@@ -79,7 +79,7 @@ mwan是一个openwrt上的插件，可以实现多wan口的上网流量管理。
 
 **不过这里策略多出了一些单wan口直连的，用于后序的网络断开重连维护**
 
-![image-20221123162711423](/Users/lwl/Library/Application Support/typora-user-images/image-20221123162711423.png)
+![image-20221123162711423](https://raw.githubusercontent.com/2892211452/MDimg/master/image/daa0b5992d6a9fb3beceed9958bce7d2/b72bda4c10c59fc2060b993a4472d986.png)
 
 
 
@@ -106,7 +106,7 @@ mwan是一个openwrt上的插件，可以实现多wan口的上网流量管理。
 
 如图
 
-![image-20221124131230129](/Users/lwl/Library/Application Support/typora-user-images/image-20221124131230129.png)
+![image-20221124131230129](https://raw.githubusercontent.com/2892211452/MDimg/master/image/daa0b5992d6a9fb3beceed9958bce7d2/a13157415383cbece72853f191bf702a.png)
 
 
 

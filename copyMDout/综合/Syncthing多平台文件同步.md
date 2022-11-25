@@ -42,15 +42,15 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ### 先添加设备
 
-![image-20221123221058166](/Users/lwl/Library/Application Support/typora-user-images/image-20221123221058166.png)
+![image-20221123221058166](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/260f4e09ec8d52fad03e56ed76de9c3f.png)
 
 填入目标设备ID
 
-![image-20221123221134471](/Users/lwl/Library/Application Support/typora-user-images/image-20221123221134471.png)
+![image-20221123221134471](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/598117f3217fcab6d13e71cab3531cc3.png)
 
 填入目标设备IP
 
-![image-20221123221209755](/Users/lwl/Library/Application Support/typora-user-images/image-20221123221209755.png)
+![image-20221123221209755](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/98caa7e2d3bc0694b8e3745bf83c6657.png)
 
 
 
@@ -60,11 +60,11 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 不同设备间，这个标识符应该唯一
 
-![image-20221123221257440](/Users/lwl/Library/Application Support/typora-user-images/image-20221123221257440.png)
+![image-20221123221257440](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/8d8c8461b31498ccde50ab9bbccd65cf.png)
 
 设置待同步的设备
 
-![image-20221123221333920](/Users/lwl/Library/Application Support/typora-user-images/image-20221123221333920.png)
+![image-20221123221333920](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/a8ae781cb66fe526668b14098137a882.png)
 
 
 
@@ -72,7 +72,7 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ### 主动扫描同步
 
-![image-20221123221358020](/Users/lwl/Library/Application Support/typora-user-images/image-20221123221358020.png)
+![image-20221123221358020](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/804c6e14b4beda9237b18b8a28764db4.png)
 
 点击就会同步给共享中的设备。
 
@@ -88,7 +88,7 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ### 通过公网服务器做中间节点
 
-![image-20221124212741062](/Users/lwl/Library/Application Support/typora-user-images/image-20221124212741062.png)
+![image-20221124212741062](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/90e3fe6945395c1920c281611d53c0f2.png)
 
 要点：
 

@@ -14,7 +14,7 @@
 
 在查阅相关资料后。获悉，jupyter在浏览器里面会有一个jupyter对象。可以通过对这个对象执行函数，实现全部自动化操作。可以在控制台执行。
 
-![image-20221009193043155](/Users/lwl/Library/Application Support/typora-user-images/image-20221009193043155.png)
+![image-20221009193043155](https://raw.githubusercontent.com/2892211452/MDimg/master/image/536c1e5c631aea0dfc3c8ce5d0023b10/cec7fe07511ac6414c11c2d472a5c58b.png)
 
 下面讲解一些实用的函数。
 
@@ -22,7 +22,7 @@
 
 ### 方框是分类种类的。
 
-![image-20221009173853724](/Users/lwl/Library/Application Support/typora-user-images/image-20221009173853724.png)
+![image-20221009173853724](https://raw.githubusercontent.com/2892211452/MDimg/master/image/536c1e5c631aea0dfc3c8ce5d0023b10/a79cc35024ca5fe91096ee6cf93fe67f.png)
 
 图里面，第一个是md框，第二个是代码执行框。
 
