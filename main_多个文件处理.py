@@ -1,18 +1,22 @@
 from main_单个文件处理 import *
 import os
 import shutil
+import sys
 """
 对一个文件夹内部的多个md文件进行批处理换源
 """
 
 
 # 文件夹路径
-dr_Path = './copyMD'
+dr_Path = './copyMDout1'
 
 
 
 # 对文件夹整体拷贝，是为了实现目录层级,先删后拷贝
-shutil.rmtree('./copyMDout')
+try:
+    shutil.rmtree('./copyMDout')
+except Exception as e:
+    print("无需删除文件夹")
 shutil.copytree(dr_Path, './copyMDout')
 
 
@@ -35,5 +39,6 @@ for complete_name, file_name in files:
     conf['md_name'] = file_name
     conf['complete_name'] = complete_name
 
+    print(complete_name)
     init()
     main()
