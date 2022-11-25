@@ -12,7 +12,9 @@
 
 **代理的是客户端**
 
-使用v2ray配置，服务端：
+使用v2ray配置，
+
+**服务端：**
 
 ```
 {
@@ -249,4 +251,97 @@
 
 
 
+## 多级代理提高溯源难度
+
+如果就一台服务器，那么实际上通过查询那台服务器，可以找回到请求的原始ip。那么，可不可以在全球疯狂的绕几层服务器。大大提高服务器的溯源难度。
+
+v2ray就可以。v2ray可以实现链式转发。
+
+例如，如果有多个ssr账户，可以
+
+```
+{
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": { // settings 的根据实际情况修改
+        "vnext": [
+          {
+            "address": "1.1.1.1",
+            "port": 8888,
+            "users": [
+              {
+                "alterId": 64,
+                "id": "b12614c5-5ca4-4eba-a215-c61d642116ce"
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "DOUS",
+      "proxySettings": {
+          "tag": "DOSG"  
+        }
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "2.2.2.2",
+            "method": "aes-256-cfb",
+            "ota": false,
+            "password": "password",
+            "port": 1024
+          }
+        ]
+      },
+      "tag": "AliHK"
+    },
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "3.3.3.3",
+            "method": "aes-256-cfb",
+            "ota": false,
+            "password": "password",
+            "port": 3442
+          }
+        ]
+      },
+      "tag": "AliSG",
+      "proxySettings": {
+          "tag": "AliHK"  
+      }
+    },
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "4.4.4.4",
+            "port": 8462,
+            "users": [
+              {
+                "alterId": 64,
+                "id": "b27c24ab-2b5a-433e-902c-33f1168a7902"
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "DOSG",
+      "proxySettings": {
+          "tag": "AliSG"  
+      }
+    },
+  ]
+}
+```
+
+那么数据包经过的节点依次为： PC -> AliHK -> AliSG -> DOSG -> DOUS -> 目标网站
+
+这样的代理转发形成了一条链条，我称之为链式代理转发。
 
