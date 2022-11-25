@@ -55,7 +55,8 @@ def init():
     os.makedirs(FileDir + '/copyMDout/', exist_ok=True)
     os.makedirs(FileDir + '/image/' + md_name_hash, exist_ok=True)
 
-    with open(FileDir + '/sourcemd/' + md_name, 'r', encoding='utf-8', errors='ignore') as f:
+    # 打开待处理文件夹
+    with open(conf['complete_name'], 'r', encoding='utf-8', errors='ignore') as f:
         content = f.readlines()
 
     md_file = open(FileDir + '/copyMDout/' + md_name, 'w', encoding='utf-8', )
