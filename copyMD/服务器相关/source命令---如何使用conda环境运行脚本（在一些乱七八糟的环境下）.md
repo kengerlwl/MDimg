@@ -38,6 +38,12 @@ bash sync_wordpress.sh
 
 
 
+
+
+
+
+
+
 ## source命令的说明
 
 `source filename`
@@ -52,3 +58,8 @@ sh 会新建一个子shell，并在子shell中读取执行filename中的命令�
 
 
 
+
+
+
+
+**活用好source命令，能够解决很多环境上的问题。**
