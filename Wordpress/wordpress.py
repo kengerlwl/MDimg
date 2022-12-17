@@ -1,3 +1,4 @@
+# coding:utf-8
 import os  # 用来遍历文件路径
 import sys
 from Config import *
