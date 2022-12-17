@@ -37,3 +37,10 @@ fi
 参考：
 
 http://stackoverflow.com/questions/9449778/what-is-the-benefit-of-using-instead-of-backticks-in-shell-scripts
+
+
+
+
+
+
+
