@@ -17,6 +17,8 @@ md_file = None
 img_dir_pre = None  # 图片存储的目录
 conf = get_config()
 
+# 文件夹路径
+out_path = 'copyMDout输出'
 
 def request_download(path, IMAGE_URL):
     """
@@ -52,7 +54,7 @@ def init():
 
     # 新建可能需要的目录
     os.makedirs(FileDir + '/image/', exist_ok=True)
-    os.makedirs(FileDir + '/copyMDout/', exist_ok=True)
+    os.makedirs(FileDir + '/'+out_path+'/', exist_ok=True)
     os.makedirs(FileDir + '/image/' + md_name_hash, exist_ok=True)
 
     # 打开待处理文件夹

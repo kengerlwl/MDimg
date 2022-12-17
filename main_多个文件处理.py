@@ -6,24 +6,25 @@ import sys
 对一个文件夹内部的多个md文件进行批处理换源
 """
 
+source_path = './copyMD'
 
 # 文件夹路径
-dr_Path = './copyMDout1'
+out_path = 'copyMDout输出'
 
 
 
 # 对文件夹整体拷贝，是为了实现目录层级,先删后拷贝
 try:
-    shutil.rmtree('./copyMDout')
+    shutil.rmtree(out_path)
 except Exception as e:
     print("无需删除文件夹")
-shutil.copytree(dr_Path, './copyMDout')
+shutil.copytree(source_path, out_path)
 
 
 
 # 获取所有待处理文档的路径，这里是打算直接在copy文件夹里面操作，直接覆盖
 files =[]
-for root, dir,file in os.walk('./copyMDout'):
+for root, dir,file in os.walk(out_path):
     for file_name in file:
         # 如果是md文档
         if file_name.endswith('.md'):

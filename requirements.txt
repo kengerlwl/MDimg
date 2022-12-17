@@ -1,0 +1,5 @@
+python-frontmatter
+markdown
+python-wordpress-xmlrpc
+requests
+Pillow
