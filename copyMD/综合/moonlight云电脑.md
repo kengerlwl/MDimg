@@ -115,6 +115,12 @@ remote_port = 48010
 
 ### 如何使用moonlight连接
 
+
+
 输入ip就可以了
 
 ![image-20221218215436510](https://raw.githubusercontent.com/2892211452/MDimg/master/image/73e9ab486fd11539c76112ad3b7a06ee/468699ab353a98c772a03dd2fa79f380.png)
+
+
+
+Moonlight串流的画面质量很高，当作远程桌面来用完全没问题。不过，它默认只让你启动游戏，那怎么办呢？你可以启动一个不会立即进去的游戏，比如CS:GO，然后把它晾着去干别的事情。其实，还有一种更优雅的解法：在Geforce Experience里把`C:\Windows\System32\mstsc.exe`添加到游戏列表里，在Moonlight里点mstsc就能直接进桌面了。其实`mstsc.exe`是Windows 远程桌面的exe，Moonlight并没有真的去执行它，Moonlight实际上相当于收到了一个信号，那就是你想直接进桌面。至于为什么设计得这么奇怪，那你得问Nvidia。
