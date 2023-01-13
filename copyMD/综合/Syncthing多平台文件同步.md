@@ -48,7 +48,9 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ![image-20221123221134471](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/598117f3217fcab6d13e71cab3531cc3.png)
 
-填入目标设备IP
+填入目标设备IP。
+
+**坑点：不知道为什么如果按照提示使用`（"tcp://ip:port", "tcp://host:port"）`反而会出错**
 
 ![image-20221123221209755](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/98caa7e2d3bc0694b8e3745bf83c6657.png)
 
