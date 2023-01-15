@@ -43,23 +43,23 @@ visudo
 
 找到一个神奇的方法：远程的话开两个ssh终端，**两个终端要同一个用户**
 
-![img](https://raw.githubusercontent.com/2892211452/MDimg/master/image/e09b44733b8bab72990d5e40b3bcb69c/e3e8639dd831b735642e605ccc98633b.png)
+![img](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/256a8173241b71a641a53b2611818473/d3937500028f3c23bb88cf2d30177105.png)
 
  对tty1终端：`输入 echo $$` //获取pid
 
-![img](https://raw.githubusercontent.com/2892211452/MDimg/master/image/e09b44733b8bab72990d5e40b3bcb69c/8553a5cf738f52d6744883d14c9294e6.png)
+![img](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/256a8173241b71a641a53b2611818473/8023102ce6f8366254f1184377084c9e.png)
 
 切换到tty2：输入 `pkttyagent --process 获取的pid值 ；此时该tty2终端会卡住`
 
-![img](https://raw.githubusercontent.com/2892211452/MDimg/master/image/e09b44733b8bab72990d5e40b3bcb69c/7a63cd8c0ae43c4b884b7b0a372bd21b.png)
+![img](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/256a8173241b71a641a53b2611818473/35c4611902ca88caa0a631c4e84d6769.png)
 
 切到tty1：输入 `pkexec visudo ；此时tty1也会卡住`
 
-![img](https://raw.githubusercontent.com/2892211452/MDimg/master/image/e09b44733b8bab72990d5e40b3bcb69c/2e87ef8581039357afd440a5f9df053d.png)
+![img](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/256a8173241b71a641a53b2611818473/e7d7d494ae4cc05619a8d73e2043aee1.png)
 
 切到tty2：会看到要求输入密码，对应输入
 
-![img](https://raw.githubusercontent.com/2892211452/MDimg/master/image/e09b44733b8bab72990d5e40b3bcb69c/5e9ad097ba63376251f15cd919447a52.png)
+![img](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/256a8173241b71a641a53b2611818473/c7103736a1a11c107746bd6f74137ad4.png)
 
 切回到tty1：发现已经进入了visudo编辑界面，实际上把**pkexec**后面的命令换成其他也是一样的用sudo执行
 

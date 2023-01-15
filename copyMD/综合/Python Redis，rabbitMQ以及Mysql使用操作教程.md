@@ -24,14 +24,14 @@ Redis 除了做缓存之外，也经常用来做分布式锁，甚至是消息�
             127.0.0.1：只允许本机访问
             ```
 3. 启动redis。在可执行文件目录下执行`redis-server.exe redis.windows.conf`
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/28ad227c312ac77ff864ee30af2ad98b/3115cf29925c2e690b4d1ef6caa908e6.png)
+![](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/28ad227c312ac77ff864ee30af2ad98b/16e2c421d46d1fa0805f02ef701b9225.png)
 
 4. 用redis的客户端查看
 ```
 # 在服务器开始运行之后，运行命令
 redis-cli.exe
 ```
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/28ad227c312ac77ff864ee30af2ad98b/e71fb83b7f7bc2d13b394c39754d583a.png)
+![](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/28ad227c312ac77ff864ee30af2ad98b/70891fa074145dd529d88fb0e307b478.png)
 
 
 5. 最终的配置文件
@@ -179,7 +179,7 @@ docker run -it -p 0122:22 -p 6379:6379 -p 5672:5672 -p 15672:15672 --privileged 
 init，设置/usr/sbin/init 为一号进程，方便后序的systemctl使用。
 ```
 
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/28ad227c312ac77ff864ee30af2ad98b/057b15fe5f7032af66b14e00f27a81c6.png)
+![](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/28ad227c312ac77ff864ee30af2ad98b/29245237bf8fe4e2b891c4bd15054ed0.png)
 
 
 # docker compose使用

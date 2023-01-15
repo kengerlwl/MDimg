@@ -42,17 +42,17 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ### 先添加设备
 
-![image-20221123221058166](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/260f4e09ec8d52fad03e56ed76de9c3f.png)
+![image-20221123221058166](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/b38ce5a9fef6d80c46c71406bdb9cf12.png)
 
 填入目标设备ID
 
-![image-20221123221134471](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/598117f3217fcab6d13e71cab3531cc3.png)
+![image-20221123221134471](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/4420cd0ce37e63ad779ee1d1b8378f38.png)
 
 填入目标设备IP。
 
 **坑点：不知道为什么如果按照提示使用`（"tcp://ip:port", "tcp://host:port"）`反而会出错**
 
-![image-20221123221209755](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/98caa7e2d3bc0694b8e3745bf83c6657.png)
+![image-20221123221209755](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/5dd593bdeba2248a8922019afa939b4d.png)
 
 
 
@@ -62,11 +62,11 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 不同设备间，这个标识符应该唯一
 
-![image-20221123221257440](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/8d8c8461b31498ccde50ab9bbccd65cf.png)
+![image-20221123221257440](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/733fb24aa80c637fcc89d4982d97ab28.png)
 
 设置待同步的设备
 
-![image-20221123221333920](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/a8ae781cb66fe526668b14098137a882.png)
+![image-20221123221333920](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/1f3717eca7ac3567df1150996a643a55.png)
 
 
 
@@ -74,7 +74,7 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ### 主动扫描同步
 
-![image-20221123221358020](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/804c6e14b4beda9237b18b8a28764db4.png)
+![image-20221123221358020](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/9ff9441e9f8c3122a1537efa4a4658fa.png)
 
 点击就会同步给共享中的设备。
 
@@ -90,7 +90,7 @@ docker run --name syncthing -d -p 8384:8384 -p 22000:22000 -v 待同步的目录
 
 ### 通过公网服务器做中间节点
 
-![image-20221124212741062](https://raw.githubusercontent.com/2892211452/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/90e3fe6945395c1920c281611d53c0f2.png)
+![image-20221124212741062](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/028e0d396c15ec22f145eac2e43acb96/713088de8e208fe801e7e9f241b509a8.png)
 
 要点：
 

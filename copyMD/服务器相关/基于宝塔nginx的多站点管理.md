@@ -18,29 +18,29 @@
 
 先直接将域名指向服务器ip。或者服务器www域名也可以。总之就是直接到80端口。
 
-![image-20221217203603861](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/37c57ef6a84a5c47efe7a06d38397e1b.png)
+![image-20221217203603861](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/f6fdfb6c69c5f7b513aa171974e0ea87.png)
 
 ## 设置宝塔面板nginx
 
 然后去宝塔
 
-![image-20221217203731037](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/87f5c8b0a5c411d8f00163cc0832245b.png)
+![image-20221217203731037](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/efcab459a012bf898b8bc6260ddaf6a8.png)
 
 
 
 添加一个站点
 
-![image-20221217203751574](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/5f5223ab4d957d75fe48eb9c468462a7.png)
+![image-20221217203751574](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/ea3a5a87ac083d069d4d82b89c69c386.png)
 
 
 
 设置反向代理到本地
 
-![image-20221217204302535](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/91d53881cd3f75902d0a995a3afd3fd2.png)
+![image-20221217204302535](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/693152a0e565faee0ca878b3661da118.png)
 
 
 
-![image-20221217203808588](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/711d3ca9458779ea6d08dbd5c5cb63c5.png)
+![image-20221217203808588](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/b403b7242a1e21d95530d7cce95128dc.png)
 
 
 
@@ -48,7 +48,7 @@
 
 
 
-![image-20221217204312605](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/a04c3adb65e79bcf6f9ade4810328678.png)
+![image-20221217204312605](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/860676fa93d310175d980bf6a266df6d.png)
 
 
 

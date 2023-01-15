@@ -4,7 +4,7 @@
 
 结果
 
-![image-20230113225050509](/Users/lwl/Library/Application Support/typora-user-images/image-20230113225050509.png)
+![image-20230113225050509](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/230e647f418926abc0ab069056ffffcc/cfb7147ebdf0563d3ab63a4259c638d3.png)
 
 
 
@@ -28,7 +28,7 @@
 
 但是发现我这一开始loss就是nan。
 
-![image-20230113225244523](/Users/lwl/Library/Application Support/typora-user-images/image-20230113225244523.png)
+![image-20230113225244523](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/230e647f418926abc0ab069056ffffcc/72907cccc256126eb9cb0ab6c70319e1.png)
 
 模型内部应该加入SIGMOD之类的防止越界
 
@@ -36,7 +36,7 @@
 
 然后输出模型的的out查看
 
-![image-20230113230413317](/Users/lwl/Library/Application Support/typora-user-images/image-20230113230413317.png)
+![image-20230113230413317](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/230e647f418926abc0ab069056ffffcc/a879c2b8e861c45a003c2d2e01d649d4.png)
 
 发现第一次的数据就有nan值。不知道是中间哪一层开始的。
 

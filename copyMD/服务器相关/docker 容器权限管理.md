@@ -18,17 +18,17 @@ docker run -v $PWD/data:/data  -d --name ubuntu1 ubuntu sleep 10000000
 
 宿主机：kenger.txt文件在files（1004）用户组里面
 
-![image-20221020134533324](https://raw.githubusercontent.com/2892211452/MDimg/master/image/b86805c6c426c736260790d05d39a6a1/4ec3b84acbb6583828a8f9ee589d809f.png)
+![image-20221020134533324](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/b86805c6c426c736260790d05d39a6a1/a684d4d376d178669156fe0fdd10ae96.png)
 
 如果直接在容器里面建立一个用户，进行增删改查，是没有权限的。例如我这里的test用户。
 
-![image-20221020134644235](https://raw.githubusercontent.com/2892211452/MDimg/master/image/b86805c6c426c736260790d05d39a6a1/6ce9b08ebcd4e5c89fefe4c9efad4aa1.png)
+![image-20221020134644235](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/b86805c6c426c736260790d05d39a6a1/f705f064ab72570a50ae80aae723786e.png)
 
 
 
 但是如果我将test用户加入到容器李同gid的files用户组里面
 
-![image-20221020134731387](https://raw.githubusercontent.com/2892211452/MDimg/master/image/b86805c6c426c736260790d05d39a6a1/ca77d835288a912f4a751d4738661e94.png)
+![image-20221020134731387](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/b86805c6c426c736260790d05d39a6a1/f57afcc27ca419f27e4e71568cecec9b.png)
 
 那就是有权限的，和宿主机共享一套。
 

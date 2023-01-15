@@ -22,11 +22,11 @@
 
 ## 消背景技巧------调整颜色范围
 
-![image-20221009110452976](https://raw.githubusercontent.com/2892211452/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/363ce45f6019f2abd7fd7d7fe1c50a7f.png)
+![image-20221009110452976](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/23a81d4c402608f3d82f91314fe27bb7.png)
 
 使用混合选项。
 
-![image-20221009110523619](https://raw.githubusercontent.com/2892211452/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/3fcd14d39068fdd4f8d02b693754c00f.png)
+![image-20221009110523619](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/127381b4f2cd920a0328a8bbc620736c.png)
 
 
 
@@ -36,7 +36,7 @@
 
 可以做到加深颜色，调节对比度等等。
 
-![image-20221009110612289](https://raw.githubusercontent.com/2892211452/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/118eba8ed79711683d013c2a3ef84b54.png)
+![image-20221009110612289](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/3f53ce38859f888269d9f7792158e766.png)
 
 
 
@@ -50,7 +50,7 @@
 
 ### 图层蒙版---黑透白不透
 
-![image-20221009103857768](https://raw.githubusercontent.com/2892211452/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/479b70465da60deef0933d486e082a1a.png)
+![image-20221009103857768](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/e4c20d5da0e1091c10e8d8267b946842.png)
 
 蒙版的底色是白色，在蒙版上用黑色话，那么就会让前景变得透明。反之白色不透明
 
@@ -60,7 +60,7 @@
 
 可以用来加深颜色啥的
 
-![image-20221009104558570](https://raw.githubusercontent.com/2892211452/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/f1f86c57c5492c8c4ca2262b9bda97ce.png)
+![image-20221009104558570](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/84d663a0b038982740b9687a7d3fec01/eed3c82b9da9c8cb72ed35f95ead8483.png)
 
 
 

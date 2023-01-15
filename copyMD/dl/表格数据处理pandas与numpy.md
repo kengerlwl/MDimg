@@ -115,10 +115,10 @@ print(anchors.reshape([3,6]))  # 生成一个（3，6）的二维数组
 print(anchors.reshape([2,9]))  # 生成一个（2，9）的二维数组
 ```
 
-![3，6的输出结果](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/9ec3d81b9886a9b6d751e9e145518f23.png)
+![3，6的输出结果](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/51e8b0ed3aa99934f470914a4a5890dd.png)
 
 
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/0004c0b6293458212380c228bf736518.png)
+![](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/5b701ad441b6213cd2af64bf31d69ed1.png)
 
 
 
@@ -256,13 +256,13 @@ torch.mm(a, b)
 
 **当输入有多维时，把多出的一维作为batch提出来，其他部分做矩阵乘法。**
 
-![image-20220810220646801](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/c7ce7933f5a1baba8ebc85bfd13b4006.png)
+![image-20220810220646801](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/75c072e2f13b0e0356763b3de5b63655.png)
 
 
 
 或者都是3维的
 
-![image-20220810220708808](https://raw.githubusercontent.com/2892211452/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/0ebe7a860eea98353e1c43872d6b9e6f.png)
+![image-20220810220708808](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/1b1d9635de88de5898e66f7ece180df7/0a86bcca07904caa6e37e1c491bd0bea.png)
 
 
 

@@ -23,7 +23,7 @@ pipenv install
 ```
 pipenv shell
 ```
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/f4c8bb88e70a139f1a1b6fd1fbe46230/a2c2e3e1b9b7c8973895bb691aa36464.png)
+![](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/f4c8bb88e70a139f1a1b6fd1fbe46230/0c5e1eed2297e846bea8335613d5262c.png)
 
 
 推出虚拟环境

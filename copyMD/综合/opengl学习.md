@@ -406,7 +406,7 @@ if __name__ == "__main__":
 
 ### 三维中的视角投影
 
-![image-20210518184712038](https://raw.githubusercontent.com/2892211452/MDimg/master/image/3585bc8d10ddec2fe6ec53faf77f4efc.png)
+![image-20210518184712038](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/2250a2194fd4eca0a860e796f7366f82.png)
 
 以上是书里面的形容整个工作流程的段内容。
 
@@ -416,13 +416,13 @@ if __name__ == "__main__":
 
 #### 平行投影
 
-![image-20210518184935113](https://raw.githubusercontent.com/2892211452/MDimg/master/image/0d71fd2dba234a3d3cc6a87a89ef4ef2.png)
+![image-20210518184935113](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/508b98e6ad40a60dacb2bb2854e5f749.png)
 
 
 
 #### 透视投影
 
-![image-20210518185003943](https://raw.githubusercontent.com/2892211452/MDimg/master/image/6a9b2fc9f0cf3716c26202b2c77148da.png)
+![image-20210518185003943](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/35526336ec9d6370cf1619c7d7a10360.png)
 
 ### 函数glOrtho（），平行投影
 
@@ -438,7 +438,7 @@ if __name__ == "__main__":
 
 **视景体**:其实就是能够显示观察的范围。
 
-![image-20210518144514464](https://raw.githubusercontent.com/2892211452/MDimg/master/image/855e1b9fbe6333c4ac820952caca2086.png)
+![image-20210518144514464](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/9ef786641e8327032a3d7a981a778626.png)
 
 
 
@@ -446,13 +446,13 @@ if __name__ == "__main__":
 
 ### 透视投影glFrustum（）
 
-![image-20210518185229062](https://raw.githubusercontent.com/2892211452/MDimg/master/image/b1042a260ae8f1bc4a289112ee935986.png)
+![image-20210518185229062](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/7bbc25d1492e3b81ee11ef5b968874e8.png)
 
 
 
 
 
-![image-20210518144522692](https://raw.githubusercontent.com/2892211452/MDimg/master/image/bc088034615bd5adb1c14ff75dbaa958.png)
+![image-20210518144522692](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/3ce99d17c2fd0addad843f0d33bc1760.png)
 
 
 
@@ -483,7 +483,7 @@ if __name__ == "__main__":
 
 这两个圆半径相差一倍，但是使用透视投影，第一个能遮住第二个半
 
-![image-20210518191339617](https://raw.githubusercontent.com/2892211452/MDimg/master/image/6f2f708c9915d0f73d355c666eb164de.png)
+![image-20210518191339617](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/99bc0e5b277845423ed4bc0276813fcd.png)
 
 **果然**
 
@@ -584,13 +584,13 @@ $$x^{,} = M1 \cdot M2 \cdot M3 \cdot x$$
 
 没开之前
 
-![image-20210518150145147](https://raw.githubusercontent.com/2892211452/MDimg/master/image/7047fbc154d790b1c4e20b859cdf43b6.png)
+![image-20210518150145147](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/b4716349e59a32047b1eafc54132f229.png)
 
 不难看出，三角形被后来绘制的圆形给挡住了。
 
 **开启深度测试**
 
-![image-20210518150228027](https://raw.githubusercontent.com/2892211452/MDimg/master/image/8b3ab62954d41a0dbdd52e7141712ef4.png)
+![image-20210518150228027](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7974510d81a8f068b3b3d3e0ac238580/3e22591f8acb6b6e8832e33cb467cea5.png)
 
 **没毛病**
 

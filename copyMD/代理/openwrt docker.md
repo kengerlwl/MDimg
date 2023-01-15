@@ -93,7 +93,7 @@ config interface 'vpn0'
 
 然后就可以通过192.168.0.2访问openwrt了。
 
-![image-20221113144733240](https://raw.githubusercontent.com/2892211452/MDimg/master/image/abc4bfe03679e22fabb51b8e9fb21bf4/671f73847725db76f8879917396ca233.png)
+![image-20221113144733240](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/abc4bfe03679e22fabb51b8e9fb21bf4/76cf55cc1affeae22ac0fed3004002e5.png)
 
 
 
@@ -119,4 +119,4 @@ config interface 'vpn0'
 
 让连接主路由的设备默认走旁路由网关
 
-![image-20221113144137125](https://raw.githubusercontent.com/2892211452/MDimg/master/image/abc4bfe03679e22fabb51b8e9fb21bf4/3be7179794465b77fe601e1f478ca93a.png)
+![image-20221113144137125](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/abc4bfe03679e22fabb51b8e9fb21bf4/8557371175b5879904b17864fb35bbe4.png)
