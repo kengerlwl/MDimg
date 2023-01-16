@@ -111,7 +111,7 @@ main.py
 
 
 # 项目地址
-[github项目地址](https://github.com/2892211452/MDimg)
+[github项目地址](https://github.com/kengerlwl/MDimg)
 
 有个问题，github的资源更新比较慢。
 
