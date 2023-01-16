@@ -1,3 +1,7 @@
+
+
+# 监控哪些人在服务器卷小脚步
+
 ```
 #coding=gbk
 import os, re
@@ -89,5 +93,15 @@ if __name__ == '__main__':
             online_users.__delitem__(key)
         print(online_users)
         time.sleep(5)
+```
+
+# 自动下线小脚本
+
+```
+while(true)
+do
+	sleep(500);
+	who | awk -F ' ' '{print $2}' | xargs  pkill -kill -t 
+done;
 ```
 
