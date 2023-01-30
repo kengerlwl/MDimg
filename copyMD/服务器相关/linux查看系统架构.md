@@ -32,7 +32,7 @@ uname -a
 
 
 
-![image-20230116215725688](/Users/lwl/Library/Application Support/typora-user-images/image-20230116215725688.png)
+![image-20230116215725688](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/658b2b5c183fcf1e9130b23aa3785369/2af73444b80ec3a9311613ade8970541.png)
 
 
 
