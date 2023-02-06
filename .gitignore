@@ -3,7 +3,7 @@ venv
 * text=auto
 */__pycache__
 log
-Config/*.json
+#Config/*.json
 !../file_proxy/Config/example.json
 .DS_Store
 .DS_Store

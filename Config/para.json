@@ -1,0 +1,10 @@
+{
+  "username": "kengerlwl",
+  "repository" : "MDimg",
+  "proxy": true,
+  "wordpress": {
+    "host": "http://110.40.204.239:8081",
+    "username": "kenger",
+    "password": "156354"
+  }
+}
