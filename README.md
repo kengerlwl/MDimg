@@ -2,118 +2,46 @@
 
 
 
-# 关于使用
-需要换源的md文件要放在sourcemd文件夹里面
-目前是采取，修改Config里面的para.json文件里面的md_name参数。来修改单个文件的使用名字。
-其实考虑加入 命令行的 para 会更好。
+# 使用前编辑配置文件
 
-多文件批量处理
-
-这边选择的是一次性将所有sourcemd文件夹里面的文件一次性全部处理。
-
-
-
-# 加一个哈希算法
-避免图片名字重复
-
-
-## 首先，去github新建仓库
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comVXFAdJ6.png)
-## 新建python文件以及需要进行换源的文档
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.combfKFukZ.png)
-py文件代码如下：
-
-注意，要对该文件得一些变量进行配置，
-比如:
-- 仓库名字地址
-- md文档名字
-- 还有是否需要代理
-
+![image-20230206205436715](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/04c6e90faac2675aa89e2176d2eec7d8/dbb4269a401b961e45b40c12d51bfeeb.png)
 
 ```
-import  re
-import os
-
-#当前文件目录路径
-FileDir = os.path.abspath(os.path.dirname(__file__))
-
-
-
-# 这里是我的代理， 如果不需要代理删除这个就行， 
-proxies = {"http":"http://127.0.0.1:7890", "https":"http://127.0.0.1:7890"}  #设置http和https 代理
-
-
-os.makedirs( FileDir +'/image/', exist_ok=True)
-os.makedirs(FileDir +'/copyMD/', exist_ok=True)
-
-img_dir = FileDir +'/image/'
-
-githubUrl = 'https://github.com/2892211452/MDimg' 
-githubUrl = githubUrl + '/blob/master'
-
-name = 'test.md'
-
-
-def request_download(path,IMAGE_URL):
-    import requests
-    r = requests.get(IMAGE_URL, proxies = proxies)  #使用代理   ！！！！！！！ 也可以不用，我是境外的网站所以要用
-    with open(path, 'wb') as f:
-        f.write(r.content)
-
-
-
-with open(FileDir+'/' + name, 'r', encoding= 'utf-8', errors='ignore') as  f:
-    lines = f.readlines()
-
-
-mdFile = open( FileDir +'/copyMD/' + name,'w',encoding= 'utf-8',)
-
-for i in lines:
-    ans = re.findall(r'!.?((.*?))', i)
-    if ans !=[]:
-        # print(ans)
-        tmp = i.split('(')[1]
-        tmp = tmp.replace(')', '')
-        tmp = tmp.replace('\n', '')
-        name = tmp .replace('https://', '')
-        name = name .replace('http://', '')
-        name = name .replace('/', '')
-        name = name .replace('\n', '')
-        path = img_dir + name
-        request_download(path,tmp)
-        print(tmp , '已经保存到本地')
-        url = path.replace(FileDir, '')
-        url = githubUrl + url
-        print(url)
-        i = i.replace(tmp, url)
-        print(i)
-    mdFile.write(i)
-
-
+{
+  "username": "kengerlwl", # 用户名
+  "repository" : "MDimg", # 仓库名
+  "proxy": true, # 针对特殊图片，是否使用代理
+  "wordpress": { # 上传到wordpress的配置
+    "host": "http://host:8081",
+    "username": "***",
+    "password": "***"
+  }
+}
 ```
 
 
-## 运行该文件
 
-main.py
+# 单文件使用
 
-查看运行后的md
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comIQZHsl3.png)
-可以发现，已经换成github了
-
-## 然后将github push上去
-
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comD0PsiaM.png)
-
-## 查看生成的文档：
-![](https://raw.githubusercontent.com/2892211452/MDimg/master/image/i.imgur.comtZD4RXW.png)
-成功
+![image-20230206205223812](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/04c6e90faac2675aa89e2176d2eec7d8/50fe86a639e05acf27a546ab81ac3dbb.png)
 
 
-# 项目地址
-[github项目地址](https://github.com/kengerlwl/MDimg)
 
-有个问题，github的资源更新比较慢。
+- 然后上传仓库。
+
+
+
+# 多文件批量更换
+
+**这里设置默认更改这个文件夹的所有文档图源**
+
+![image-20230206205616493](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/04c6e90faac2675aa89e2176d2eec7d8/c9683de0999cae2ce963333b3166135d.png)
+
+
+
+## 生成的新图源文档在如下文件夹
+
+![image-20230206205730187](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/04c6e90faac2675aa89e2176d2eec7d8/570b3a5cf2a5c523732de1b349308d3b.png)
 
 
 
