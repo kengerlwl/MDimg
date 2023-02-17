@@ -32,6 +32,14 @@ id_rsa.pub：是放在服务器端的公钥
 
 ### 设置 SSH，打开密钥登录功能
 
+将公钥放入服务器
+
+**直接将id_rsa.pub里面的东西复制到另一台的$USER/.ssh/authorized_keys里面**
+
+
+
+
+
 编辑 /etc/ssh/sshd_config 文件，进行如下设置：
 
 ```
@@ -54,14 +62,14 @@ PasswordAuthentication no
 最后，重启 SSH 服务：
 
 ```
-[root@host .ssh]$ service sshd restart
+service sshd restart
 ```
 
 
 
 
 
-vscode配置本地秘钥登录
+## vscode配置本地秘钥登录
 
 ```
 Host gpu2.csubot.cn

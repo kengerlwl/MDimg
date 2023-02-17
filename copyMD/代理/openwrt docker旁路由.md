@@ -16,11 +16,13 @@
 
 
 
+**eth0是网卡名，根据具体情况更改配置**
+
 ```
 # 开启混杂模式
 ip link set  eth0 promisc on
 
-docker network create -d macvlan --subnet=192.168.0.0/24 --gateway=192.168.0.1 -o parent=enp2s0 macnet
+docker network create -d macvlan --subnet=192.168.0.0/24 --gateway=192.168.0.1 -o parent=eth0 macnet
 ```
 
 我的linux网络本机ip是：192.168.0.208

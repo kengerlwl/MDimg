@@ -24,7 +24,7 @@ dd if=/dev/urandom of=out_file_name bs=1M count=1000
 - 针对整个 partition（分区）：
   quota 实际在运作的时候，是针对『整个 partition』进行限制的， 例如：如果你的 /dev/hda5 是挂载在 /home 底下，那么在 /home 底下的所有目录都会受到限制！
 - 只对一般身份使用者有效：
-  这就有趣了！并不是所有在 Linux 上面的账号都可以设定 quota 呢，例如 **root 就不能设定 quota** ， 因为整个系统所有的数据几乎都是他的啊！ ^_^
+  这就有趣了！并不是所有在 Linux 上面的账号都可以设定 quota 呢，例如 **root 就不能设定 quota** ， 因为整个系统所有的数据几乎都是他的！
 
 
 
@@ -233,8 +233,7 @@ repquota -a
 
 
 ```
-example_name=csj
-group_name=test
+
 
 ```
 

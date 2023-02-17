@@ -38,7 +38,9 @@
 
 ![image-20221217204302535](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/693152a0e565faee0ca878b3661da118.png)
 
+### 错误注意
 
+尽量不要用localhost。用127.0.0.1更好。
 
 ![image-20221217203808588](https://raw.githubusercontent.com/kengerlwl/MDimg/master/image/7d3fdd730213faafd876f5c39adc98ca/b403b7242a1e21d95530d7cce95128dc.png)
 
