@@ -3,30 +3,28 @@ on:
   push: 
     branches:
       - master
-jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
 
-    steps:
-       # 1. 获取源码， 这里需要将仓库代码检出到虚拟机实例中
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-        with:
-        # 来自官网：如果您正在使用actions/checkout@v2，那么在大多数情况下，您必须将持久凭证设置为false，才能使部署正确工作
-          persist-credentials: false
-      
-      # 2. 执行 react 项目中的 依赖包安装和构建
-      - name: Install and Build 🔧
-        run: |
-          npm install
-          npm run build
-        
-      # 3. 将打包后的代码部署到 pages 分支
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.5.7
-        with:
-          # 为了让 GitHub触发重新构建页面，您必须使用存储库提供的GitHub令牌来提供操作, GITHUB_TOKEN 是系统默认提供的  不需要单独配置环境变量
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: pages 
-          FOLDER: dist 
 
+ jobs: # 工作流
+  build: # 自定义名称
+  runs-on: ubuntu-latest #运行在虚拟机环境ubuntu-latest
+
+  strategy:
+    matrix:
+    node-version: [14.x]
+
+  steps: # 步骤
+    - name: Checkout # 步骤1
+    uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。
+    #作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
+    - name: Use Node.js ${{ matrix.node-version }} # 步骤2
+    uses: actions/setup-node@v1 # 作用：安装nodejs
+    with:
+      node-version: ${{ matrix.node-version }} # 版本
+    - name: Deploy # 步骤3 部署到github gh-pages
+    env: # 设置环境变量
+      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # token私密变量
+    - run: |
+      cd blog_depoly
+      npm install 
+      npm run deploy
