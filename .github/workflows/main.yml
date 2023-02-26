@@ -28,9 +28,10 @@ jobs:
       - name: Set node version to ${{ matrix.node_version }}
         uses: actions/setup-node@v2
         with:
-          cache-dependency-path: blog_deploy/package.json
           node-version: ${{ matrix.node_version }}
           cache: "pnpm" # 缓存
+          cache-dependency-path: ./blog_deploy/package.json
+
 
       # 4.安装依赖
       - name: Install deps
