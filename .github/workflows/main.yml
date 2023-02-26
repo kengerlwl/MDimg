@@ -1,30 +1,45 @@
-name: github actions build and deploy pages
+name: Deploy Github
+
+# 在master分支发生push事件时触发。
 on:
-  push: 
+  push:
     branches:
       - master
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
 
-jobs: # 工作流
-  build: # 自定义名称
-  runs-on: ubuntu-latest #运行在虚拟机环境ubuntu-latest
+    steps:
+      # 1.检出仓库
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  strategy:
-    matrix:
-    node-version: [14.x]
+      # 2. 设置pnpm包管理器
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.15.1
 
-  steps: # 步骤
-    - name: Checkout # 步骤1
-    uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。
-    #作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
-    - name: Use Node.js ${{ matrix.node-version }} # 步骤2
-    uses: actions/setup-node@v1 # 作用：安装nodejs
-    with:
-      node-version: ${{ matrix.node-version }} # 版本
-    - name: Deploy # 步骤3 部署到github gh-pages
-    env: # 设置环境变量
-      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # token私密变量
-    - run: |
-      cd blog_depoly
-      npm install 
-      npm run deploy
+      # 3. 安装nodejs
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: "pnpm" # 缓存
+
+      # 4.安装依赖
+      - name: Install deps
+        run: pnpm install
+
+      # 5.构建/部署
+      - name: run deploy_github.sh
+        run: |
+          cd blog_depoly
+          pnpm run deploy_github
+          pnpm run deploy_github_coding_branch
+        env: # 设置环境变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
