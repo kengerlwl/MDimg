@@ -39,6 +39,7 @@ jobs:
       - name: Install deps
         run: |
           ls
+          pwd
           cd blog_deploy
           pnpm install
 
