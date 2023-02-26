@@ -17,12 +17,10 @@ jobs:
       # 1.检出仓库
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: blog_deploy
 
       # 2. 设置pnpm包管理器
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
+      - name: Install npm
+        uses: npm/action-setup@v2.0.1
         with:
           version: 6.15.1
 
@@ -30,18 +28,19 @@ jobs:
       - name: Set node version to ${{ matrix.node_version }}
         uses: actions/setup-node@v2
         with:
+          cache-dependency-path: blog_deploy/package.json
           node-version: ${{ matrix.node_version }}
-          cache: "pnpm" # 缓存
+          cache: "npm" # 缓存
 
       # 4.安装依赖
       - name: Install deps
-        run: pnpm install
+        run: npm install
 
       # 5.构建/部署
       - name: run deploy_github.sh
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
         run: |
-          pnpm run deploy_github
-          pnpm run deploy_github_coding_branch
+          npm run deploy_github
+          npm run deploy_github_coding_branch
         
