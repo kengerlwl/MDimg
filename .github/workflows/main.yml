@@ -53,5 +53,5 @@ jobs:
           git config user.email "email"
           git add .
           git commit -m "$(date) Update from Action"
-          git push --force --quiet "https://JS-banana:${GITHUB_TOKEN}@github.com/JS-banana/vuepress.git" master:gh-pages
+          git push --force --quiet "https://kengerlwl:${GITHUB_TOKEN}@github.com/kengerlwl/MDimg.git" master:gh-pages
             
