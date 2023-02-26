@@ -231,7 +231,7 @@ jobs: #可以有多个job
         uses: actions/checkout@v1
       - name: Build
         run: make
-      - run: |  #同时运行多行
+        run: |  #同时运行多行
           npm ci
           npm run build
           npm test
@@ -239,7 +239,9 @@ jobs: #可以有多个job
 
 
 
+**注意！！！**
 
+**注意，如果在一个 step 中 cd 到某个目录下，那么后续的 step 是不受影响的，还是在原来的目录中。**
 
 
 

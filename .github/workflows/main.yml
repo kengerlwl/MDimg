@@ -33,7 +33,6 @@ jobs:
 
       # 4.安装依赖
       - name: Install deps
-
         run: |
           cd blog_depoly
           pnpm install
