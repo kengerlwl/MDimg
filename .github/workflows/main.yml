@@ -26,7 +26,6 @@ jobs:
 
       # 3. 安装nodejs
       - name: Set node version to ${{ matrix.node_version }}
-        run: cd blog_depoly
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node_version }}
@@ -34,13 +33,17 @@ jobs:
 
       # 4.安装依赖
       - name: Install deps
-        run: pnpm install
+
+        run: |
+          cd blog_depoly
+          pnpm install
 
       # 5.构建/部署
       - name: run deploy_github.sh
-        run: |
+        env: # 设置环境变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+      - run: |
           cd blog_depoly
           pnpm run deploy_github
           pnpm run deploy_github_coding_branch
-        env: # 设置环境变量
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+        
