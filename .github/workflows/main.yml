@@ -32,10 +32,13 @@ jobs:
         #   cache: "pnpm" # 缓存
         #   cache-dependency-path: ./blog_deploy/package.json
 
+      - name: Checkout
+        uses: actions/checkout@v2
 
       # 4.安装依赖
       - name: Install deps
         run: |
+          ls
           cd blog_deploy
           pnpm install
 
