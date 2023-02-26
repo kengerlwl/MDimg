@@ -26,6 +26,7 @@ jobs:
 
       # 3. 安装nodejs
       - name: Set node version to ${{ matrix.node_version }}
+        run: cd blog_depoly
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node_version }}
