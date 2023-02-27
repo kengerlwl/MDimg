@@ -1,0 +1,42 @@
+name: Deploy Github
+
+# 在master分支发生push事件时触发。
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [12.x]
+
+    steps:
+      # 1.检出仓库
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # 3. 安装nodejs
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: "npm" # 缓存
+          cache-dependency-path: package-lock.json
+
+
+      # 安装相关依赖
+      - name: Install deps
+        run: |
+          unzip -o node_modules.zip      
+          npm i hexo-cli -g
+          npm ci
+
+
+      # 构建/部署
+      - name: Deploy
+        env: # 设置环境变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+        run: bash ./run.sh
