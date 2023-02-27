@@ -287,6 +287,100 @@ GitHub Actions会为每次运行的工作流**自动在存储库中设置一个�
 
 
 
+
+
+### 7. 缓存
+
+在很多情况下，我们会需要用到缓存，例如node的一大堆库，如果每次都去下载就太耗时了。非常没必要。
+
+可以选择使用缓存
+
+```
+      # 3. 安装nodejs
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: "npm" # 缓存
+          cache-dependency-path: package-lock.json
+```
+
+![image-20230227171954386](/Users/lwl/Library/Application Support/typora-user-images/image-20230227171954386.png)
+
+
+
+# Github Action在线调试配置
+
+```
+name: buildx
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - uses: shaowenchen/debugger-action@v1
+        name: debugger
+        timeout-minutes: 30
+        continue-on-error: true
+        with:
+          frp_server_addr: ${{ secrets.FRP_SERVER_ADDR }}
+          frp_server_port: ${{ secrets.FRP_SERVER_PORT }}
+          frp_token: ${{ secrets.FRP_TOKEN }}
+          ssh_port: 29001
+
+```
+
+
+
+我的本地环境
+
+
+```
+      - uses: shaowenchen/debugger-action@v1
+        name: debugger
+        timeout-minutes: 30
+        continue-on-error: true
+        with:
+          frp_server_addr: 110.40.204.239
+          frp_server_port: 7000
+          frp_token: 123456
+          ssh_port: 29001
+
+```
+
+连接
+
+```
+ssh root@frp_server_addr -p ssh_port 
+```
+
+输入 root 密码: root
+
+**说明**
+
+- 进去后默认额目录是`/home/runner`
+- 一般下载的目录包，也就是我们的执行程序在`work`目录下面
+
+```
+/home/runner/work/kengerlwl.github.io/kengerlwl.github.io
+```
+
+
+
+测试
+
+```
+
+cat public/index.html
+```
+
+
+
 # ref
 
 [使用 GitHub Action 持续集成你的博客](https://blog.xiaohei.im/posts/github-action-guide/)
@@ -294,3 +388,5 @@ GitHub Actions会为每次运行的工作流**自动在存储库中设置一个�
 [GitHub Actions 第11天：密码（Secrets）](https://qiwihui.com/qiwihui-blog-94/)
 
 [请在该页面检索action](https://qiwihui.com/archives/)
+
+[github action 在线进行调试](https://www.chenshaowen.com/blog/a-debugger-for-actions.html#3-%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8-debugger-action)
